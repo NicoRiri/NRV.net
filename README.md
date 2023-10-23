@@ -54,7 +54,7 @@
 - Spectacle(<ins>id</ins>, titre, description, #soireeId, videoUrl, horaire)
 - ImageSpectable(<ins>id</ins>, imgUrl, #spectacleId)
 - Billet(<ins>#utilisateurId, #spectacleId</ins>, quantite)
-- Spectacle2Artiste(<ins>#spectacleId, #articleId</ins>)
+- Spectacle2Artiste(<ins>#spectacleId, #artisteId</ins>)
 
 ## Routes API
 - POST - /api/connexion/
