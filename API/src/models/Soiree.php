@@ -1,0 +1,23 @@
+<?php
+
+namespace NRV\api\models;
+
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Soiree extends \Illuminate\Database\Eloquent\Model
+{
+    protected $table = 'Soiree';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
+
+    public function spectacles(): HasMany
+    {
+        return $this->hasMany(Spectacle::class);
+    }
+
+    public function lieux(): BelongsTo
+    {
+        return $this->belongsTo(Lieu::class);
+    }
+}
