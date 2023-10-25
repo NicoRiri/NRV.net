@@ -1,0 +1,47 @@
+@import "../scss/base";
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 10px;
+}
+.ticket-header {
+  text-align: center;
+  padding: 10px;
+}
+.profile-info {
+
+  padding: 10px;
+}
+.ticket-table {
+  padding: 10px;
+}
+
+table {
+  width: 98%;
+  border-collapse: collapse;
+  margin:1%;
+}
+
+th, td {
+  border: 5px solid orange;
+  padding: 8px;
+  text-align: left;
+}
+
+.principal{
+  background-color: #ff912e;
+  color:white;
+}
+
+.pair{
+  background-color:#ffd6b1;
+}
+
+.impair{
+  background-color: #ffe7d4;
+}
