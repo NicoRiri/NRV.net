@@ -1,6 +1,6 @@
 <?php
 
-namespace NRV\api\DTO;
+namespace NRV\Produit\api\DTO;
 
 class ArtisteDTO extends DTO
 {

@@ -1,10 +1,9 @@
 <?php
 
-namespace NRV\api\services;
+namespace NRV\Produit\api\services;
 
-use NRV\api\DTO\SpectacleDTO;
-use NRV\api\models\Soiree;
-use NRV\api\models\Spectacle;
+use NRV\Produit\api\DTO\SpectacleDTO;
+use NRV\Produit\api\models\Spectacle;
 
 class sSpectacle
 {

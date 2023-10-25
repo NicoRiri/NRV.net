@@ -1,9 +1,10 @@
 <?php
 
-namespace NRV\api\models;
+namespace NRV\Produit\api\models;
+
+
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Utilisateur extends \Illuminate\Database\Eloquent\Model
 {

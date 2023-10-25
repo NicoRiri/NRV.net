@@ -1,6 +1,6 @@
 <?php
 
-namespace NRV\api\actions;
+namespace NRV\Produit\api\actions;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
