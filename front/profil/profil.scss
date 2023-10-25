@@ -1,0 +1,34 @@
+@import "../scss/base";
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 10px;
+}
+.ticket-header {
+  text-align: center;
+  padding: 10px;
+}
+
+.profile-info {
+
+  padding: 10px;
+}
+.ticket-table {
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 5px solid orange;
+  padding: 8px;
+  text-align: left;
+}
