@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <title>Profil</title>
     <link rel="stylesheet" href="profil.css">
+    <script type="module" src="../js/header.js"></script>
 </head>
 <header id="monHeader">
     <a class="myButton" href="google.com">Accueil</a>
     <a class="myButton" href="google.com">Festivals</a>
     <a class="myButton" href="google.com">Panier</a>
-    <a class="myButton myIcon" href="google.com"><img class="icon" src="../icon/circle-user-solid.png" alt="icon"></a>
+    <button class="myButton myIcon"><img class="icon" src="../icon/circle-user-solid.png" alt="icon"></button>
 </header>
+<div class="popup box">
+    <a class="myLog" href="google.com"><img class="miniIcon" src="../icon/user-plus-solid.png" alt="icon"> Connection</a>
+    <a class="myLog" href="google.com"><img class="miniIcon" src="../icon/user-pen-solid.png" alt="icon"> Inscription</a>
+</div>
 <body>
 <div class="background"></div>
 <div class="profile-container">
-    <div class="profile-header">
+    <div class="profile-header box">
         <h2>Mon Profil</h2>
     </div>
     <div class="profile-info box">
@@ -22,7 +27,7 @@
         <h2>Prénom : Jane</h2>
         <h2>E-mail : janedoe@example.com</h2>
     </div>
-    <div class="ticket-header">
+    <div class="ticket-header box">
         <h2>Mes billet</h2>
     </div>
     <div class="ticket-table box">
