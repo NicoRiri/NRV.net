@@ -10,9 +10,9 @@ services:
       - '2080:80'
       - '1443:443'
     volumes:
-      - ../API/public:/var/www/html
-      - ../API:/var/www
-    working_dir: /var/www/
+      - ./API/public:/var/www/html
+      - ./API:/var/www
+    working_dir: /var/www
     networks:
       nrv.net:
         aliases:
