@@ -1,11 +1,11 @@
 <?php
 
-namespace NRV\api\services;
+namespace NRV\Produit\api\services;
 
-use NRV\api\DTO\LieuDTO;
-use NRV\api\DTO\SoireeDTO;
-use NRV\api\models\Billet;
-use NRV\api\models\Soiree;
+use NRV\Produit\api\DTO\LieuDTO;
+use NRV\Produit\api\DTO\SoireeDTO;
+use NRV\Produit\api\models\Billet;
+use NRV\Produit\api\models\Soiree;
 
 class sSoiree
 {

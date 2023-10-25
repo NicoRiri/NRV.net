@@ -1,6 +1,6 @@
 <?php
 
-namespace NRV\api\models;
+namespace NRV\Produit\api\models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

@@ -4,9 +4,9 @@ CREATE TABLE Utilisateur (
                              mdp VARCHAR(255),
                              prenom VARCHAR(255),
                              nom VARCHAR(255),
-                             refreshToken VARCHAR(255),
+                             refresh_token VARCHAR(255),
+                             refresh_token_expiration_date timestamp NULL DEFAULT NULL,
                              estProducteur BIT
-);
 
 CREATE TABLE Lieu (
                       id INT PRIMARY KEY,
