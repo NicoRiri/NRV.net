@@ -3,20 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <title>Panier</title>
+    <link rel="stylesheet" href="panier.css">
+    <script type="module" src="../js/header.js"></script>
 </head>
+<header id="monHeader">
+    <a class="myButton" href="google.com">Accueil</a>
+    <a class="myButton" href="google.com">Festivals</a>
+    <a class="myButton" href="google.com">Panier</a>
+    <button class="myButton myIcon"><img class="icon" src="../icon/circle-user-solid.png" alt="icon"></button>
+</header>
+<div class="popup box">
+    <a class="myLog" href="google.com"><img class="miniIcon" src="../icon/user-plus-solid.png" alt="icon"> Connection</a>
+    <a class="myLog" href="google.com"><img class="miniIcon" src="../icon/user-pen-solid.png" alt="icon"> Inscription</a>
+</div>
 <body>
+<div class="background"></div>
 <div class="container">
-    <div class="item-details">
-        <img class="item-image" src="image_article.jpg" alt="Article">
-        <h2>Nom de la soirée</h2>
-        <p>Prix : 25€</p>
-        <p>Quantité : 2</p>
+    <!-- Première soirée -->
+    <div class="item box">
+        <img class="item-image" src="../img/placeholder.png" alt="Soirée 1">
+        <div class="item-info">
+            <h2>Nom de la soirée 1</h2>
+            <p>Prix : 25€</p>
+            <p>Quantité : 2</p>
+        </div>
     </div>
-    <div class="order-summary">
-        <p>Commande Récapitulatif</p>
+
+    <!-- Deuxième soirée -->
+    <div class="item box">
+        <img class="item-image" src="../img/placeholder.png" alt="Soirée 2">
+        <div class="item-info">
+            <h2>Nom de la soirée 2</h2>
+            <p>Prix : 30€</p>
+            <p>Quantité : 3</p>
+        </div>
+    </div>
+
+    <!-- Troisième soirée -->
+    <div class="item box">
+        <img class="item-image" src="../img/placeholder.png" alt="Soirée 3">
+        <div class="item-info">
+            <h2>Nom de la soirée 3</h2>
+            <p>Prix : 20€</p>
+            <p>Quantité : 4</p>
+        </div>
+    </div>
+
+
+    <div class="order-summary box">
+        <div class="Coomande">
+            <p>Commande Récapitulatif :</p>
+        </div>
         <p>Nombre d'Article : 2</p>
         <p>Total à payer : 55€</p>
-        <button class="order-button">Commander</button>
+        <button class="myLog">Commander</button>
     </div>
 </div>
 </body>
