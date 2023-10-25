@@ -13,3 +13,7 @@
 
 <div class="background"></div>
 (a mettre en premier dans le body)
+
+
+<script type="module" src="../js/header.js"></script>
+(a mettre dans le head)
