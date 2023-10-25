@@ -1,15 +1,5 @@
-CREATE TABLE Utilisateur (
-                             id INT PRIMARY KEY,
-                             email VARCHAR(255),
-                             mdp VARCHAR(255),
-                             prenom VARCHAR(255),
-                             nom VARCHAR(255),
-                             refresh_token VARCHAR(255),
-                             refresh_token_expiration_date timestamp NULL DEFAULT NULL,
-                             estProducteur BIT
-
 CREATE TABLE Lieu (
-                      id INT PRIMARY KEY,
+                      `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                       nom VARCHAR(255),
                       adresse VARCHAR(255),
                       nbPlaceAssise INT,
@@ -17,7 +7,7 @@ CREATE TABLE Lieu (
 );
 
 CREATE TABLE Soiree (
-                        id INT PRIMARY KEY,
+                        `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                         nom VARCHAR(255),
                         date DATE,
                         thematique VARCHAR(255),
@@ -29,12 +19,12 @@ CREATE TABLE Soiree (
 );
 
 CREATE TABLE Artiste (
-                         id INT PRIMARY KEY,
+                         `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                          pseudonyme VARCHAR(255)
 );
 
 CREATE TABLE Spectacle (
-                           id INT PRIMARY KEY,
+                           `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                            titre VARCHAR(255),
                            description TEXT,
                            soiree_id INT,
@@ -44,7 +34,7 @@ CREATE TABLE Spectacle (
 );
 
 CREATE TABLE ImageSpectacle (
-                                id INT PRIMARY KEY,
+                                `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
                                 imgUrl VARCHAR(255),
                                 spectacle_id INT,
                                 FOREIGN KEY (spectacle_id) REFERENCES Spectacle(id)
@@ -52,12 +42,12 @@ CREATE TABLE ImageSpectacle (
 
 CREATE TABLE Billet (
                         utilisateur_id INT,
-                        spectacle_id INT,
+                        soiree_id INT,
                         quantiteDebout INT,
                         quantiteAssise INT,
-                        PRIMARY KEY (utilisateur_id, spectacle_id),
+                        PRIMARY KEY (utilisateur_id, soiree_id),
                         FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id),
-                        FOREIGN KEY (spectacle_id) REFERENCES Spectacle(id)
+                        FOREIGN KEY (soiree_id) REFERENCES Soiree(id)
 );
 
 CREATE TABLE Spectacle2Artiste (

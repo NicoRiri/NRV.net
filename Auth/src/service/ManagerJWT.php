@@ -13,12 +13,12 @@ class ManagerJWT
     private $secret = "grgr";
 
 
-    public function createToken($user): string
+    public function createToken($id): string
     {
         $payload = [
             'iss'=>'localhost',
             'iat'=>time(), 'exp'=>time()+3600,
-            'uid' => $user
+            'uid' => $id
         ] ;
         return JWT::encode( $payload, $this->secret, 'HS256');
     }

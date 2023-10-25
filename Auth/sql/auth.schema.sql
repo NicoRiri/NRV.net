@@ -7,17 +7,12 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
+  `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `email` varchar(128) NOT NULL,
   `password` varchar(256) NOT NULL,
-  `active` tinyint(4) NOT NULL DEFAULT 0,
-  `activation_token` varchar(64) DEFAULT NULL,
-  `activation_token_expiration_date` timestamp NULL DEFAULT NULL,
   `refresh_token` varchar(64) DEFAULT NULL,
   `refresh_token_expiration_date` timestamp NULL DEFAULT NULL,
-  `reset_passwd_token` varchar(64) DEFAULT NULL,
-  `reset_passwd_token_expiration_date` timestamp NULL DEFAULT NULL,
   `username` varchar(64) DEFAULT NULL,
-  PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

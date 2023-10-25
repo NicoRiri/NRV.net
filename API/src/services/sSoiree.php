@@ -36,4 +36,33 @@ class sSoiree
         }
     }
 
+    public function acheterPlaceSoiree(int $id, $soiree_id, $quantite_debout, $quantite_assise)
+    {
+
+        $soiree = Soiree::where("id", $soiree_id)->first();
+        $lieu = $soiree->lieux()->first();
+        $nbPlaceDeb = $lieu->nbPlaceDebout;
+        $nbPlaceAss = $lieu->nbPlaceAssise;
+
+        $nbPlaceAss -= $quantite_assise;
+        $nbPlaceDeb -= $quantite_debout;
+
+        if ($nbPlaceDeb < 0 ||$nbPlaceAss < 0){
+            return new \Exception("Plus assez de place disponible !");
+        }
+
+        $billets = Billet::where([["utilisateur_id", $id],["soiree_id", $soiree_id]])->first();
+        if ($billets != null){
+            Billet::where([["utilisateur_id", $id],["soiree_id", $soiree_id]])->update([["quantiteDebout" => $billets->quantiteDebout + $quantite_debout], ["quantiteAssise" => $billets->quantiteAssise + $quantite_assise]]);
+        } else {
+            $dataBillet = new Billet();
+            $dataBillet->utilisateur_id = $id;
+            $dataBillet->soiree_id = $soiree_id;
+            $dataBillet->quantiteDebout = $quantite_debout;
+            $dataBillet->quantiteAssise = $quantite_assise;
+            $dataBillet->save();
+        }
+        return true;
+    }
+
 }

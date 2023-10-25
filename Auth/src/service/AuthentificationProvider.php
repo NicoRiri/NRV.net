@@ -3,21 +3,22 @@
 namespace NRV\auth\api\service;
 
 use DateTime;
+use NRV\auth\api\DTO\UsersDTO;
 use NRV\auth\api\models\Users;
 use Slim\Exception\HttpUnauthorizedException;
 
 class AuthentificationProvider implements iAuthentificationProvider
 {
 
-    public function authCredentials(string $email, string $password) : bool
+    public function authCredentials(string $email, string $password)
     {
         $res = Users::where('email', $email)->first();
         if ($res != null) {
             if (password_verify($password, $res->password)) {
-                return true;
+                return $res->id;
             }
         }
-        return false;
+        return null;
     }
 
     public function authRefreshToken(string $token, string $refreshToken)
@@ -39,10 +40,10 @@ class AuthentificationProvider implements iAuthentificationProvider
 
     }
 
-    public function getProfile(string $email)
+    public function getProfile(string $id)
     {
-        $res = Users::where('email', $email)->first();
-        return new UsersDTO($res->email, $res->active, $res->activation_token, $res->activation_token_expiration_date, $res->refresh_token, $res->refresh_token_expiration_date, $res->reset_passwd_token, $res->reset_passwd_token_expiration_date, $res->username);
+        $res = Users::where('id', $id)->first();
+        return new UsersDTO($res->id, $res->email, $res->refresh_token, $res->refresh_token_expiration_date, $res->username, $res->nom, $res->prenom);
 
     }
 

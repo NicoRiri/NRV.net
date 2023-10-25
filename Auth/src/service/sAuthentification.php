@@ -14,7 +14,8 @@ class sAuthentification implements isAuthentification
     {
         $pro = new AuthentificationProvider();
         $jwt = new ManagerJWT();
-        if ($pro->authCredentials($email, $password)){
+        $id = $pro->authCredentials($email, $password);
+        if ($id != null){
             $aToken = $jwt->createToken($email);
             $refreshtoken = Uuid::uuid4();
             $date = new DateTime();
