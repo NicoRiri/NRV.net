@@ -24,4 +24,12 @@ return function( \Slim\App $app):void {
         ->setName('profile');
     $app->post('/api/achat[/]', \NRV\api\actions\PostAchatAction::class)
         ->setName('achat');
+
+    $app->add(function ($request, $handler) {
+        $response = $handler->handle($request);
+        return $response
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    });
 };
