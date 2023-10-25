@@ -13,7 +13,6 @@
   text-align: center;
   padding: 10px;
 }
-
 .profile-info {
 
   padding: 10px;
@@ -23,12 +22,26 @@
 }
 
 table {
-  width: 100%;
+  width: 98%;
   border-collapse: collapse;
+  margin:1%;
 }
 
 th, td {
   border: 5px solid orange;
   padding: 8px;
   text-align: left;
+}
+
+.principal{
+  background-color: #ff912e;
+  color:white;
+}
+
+.pair{
+  background-color:#ffd6b1;
+}
+
+.impair{
+  background-color: #ffe7d4;
 }
