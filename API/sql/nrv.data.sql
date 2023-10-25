@@ -10,11 +10,11 @@ VALUES
     (2, 'Lieu 2', 'Adresse 2', 200, 100),
     (3, 'Lieu 3', 'Adresse 3', 150, 75);
 
-INSERT INTO Soiree (id, nom, date, thematique, lieu_id, heureDebut, heureFin, prixPlace, nbPlaceAssiseRestante, nbPlaceDeboutRestante)
+INSERT INTO Soiree (id, nom, date, thematique, lieu_id, heureDebut, heureFin, prixPlace)
 VALUES
-    (1, 'Soirée 1', '2023-10-20', 'Thématique 1', 1, '19:00:00', '23:00:00', 13.2, 100, 50),
-    (2, 'Soirée 2', '2023-10-25', 'Thématique 2', 2, '20:00:00', '00:00:00', 11.2, 200, 100),
-    (3, 'Soirée 3', '2023-11-01', 'Thématique 3', 3, '18:00:00', '22:00:00', 1109.01, 150, 75);
+    (1, 'Soirée 1', '2023-10-20', 'Thématique 1', 1, '19:00:00', '23:00:00', 13.2),
+    (2, 'Soirée 2', '2023-10-25', 'Thématique 2', 2, '20:00:00', '00:00:00', 11.2),
+    (3, 'Soirée 3', '2023-11-01', 'Thématique 3', 3, '18:00:00', '22:00:00', 1109.01);
 
 INSERT INTO Artiste (id, pseudonyme)
 VALUES
@@ -34,7 +34,7 @@ VALUES
     (2, 'https://image-url-2.com', 2),
     (3, 'https://image-url-3.com', 3);
 
-INSERT INTO Billet (utilisateur_id, spectacle_id, quantiteDebout, quantiteAssis)
+INSERT INTO Billet (utilisateur_id, spectacle_id, quantiteDebout, quantiteAssise)
 VALUES
     (1, 1, 2, 7),
     (2, 3, 1, 8),
