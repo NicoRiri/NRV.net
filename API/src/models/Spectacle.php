@@ -19,7 +19,7 @@ class Spectacle extends \Illuminate\Database\Eloquent\Model
 
     public function soirees(): BelongsTo
     {
-        return $this->belongsTo(Soiree::class);
+        return $this->belongsTo(Soiree::class, "soiree_id");
     }
 
     public function artistes(): BelongsToMany

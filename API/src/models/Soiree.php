@@ -3,6 +3,7 @@
 namespace NRV\api\models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Soiree extends \Illuminate\Database\Eloquent\Model
@@ -18,6 +19,11 @@ class Soiree extends \Illuminate\Database\Eloquent\Model
 
     public function lieux(): BelongsTo
     {
-        return $this->belongsTo(Lieu::class);
+        return $this->belongsTo(Lieu::class, "lieu_id");
+    }
+
+    public function utilisateurs(): BelongsToMany
+    {
+        return $this->belongsToMany(Utilisateur::class, "Billet");
     }
 }

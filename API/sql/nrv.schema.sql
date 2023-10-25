@@ -3,7 +3,9 @@ CREATE TABLE Utilisateur (
                              email VARCHAR(255),
                              mdp VARCHAR(255),
                              prenom VARCHAR(255),
-                             nom VARCHAR(255)
+                             nom VARCHAR(255),
+                             refreshToken VARCHAR(255),
+                             estProducteur BIT
 );
 
 CREATE TABLE Lieu (
@@ -19,10 +21,11 @@ CREATE TABLE Soiree (
                         nom VARCHAR(255),
                         date DATE,
                         thematique VARCHAR(255),
-                        lieuId INT,
+                        lieu_id INT,
                         heureDebut TIME,
                         heureFin TIME,
-                        FOREIGN KEY (lieuId) REFERENCES Lieu(id)
+                        prixPlace INT,
+                        FOREIGN KEY (lieu_id) REFERENCES Lieu(id)
 );
 
 CREATE TABLE Artiste (
@@ -34,32 +37,42 @@ CREATE TABLE Spectacle (
                            id INT PRIMARY KEY,
                            titre VARCHAR(255),
                            description TEXT,
-                           soireeId INT,
+                           soiree_id INT,
                            videoUrl VARCHAR(255),
                            horaire TIME,
-                           FOREIGN KEY (soireeId) REFERENCES Soiree(id)
+                           FOREIGN KEY (soiree_id) REFERENCES Soiree(id)
 );
 
 CREATE TABLE ImageSpectacle (
                                 id INT PRIMARY KEY,
                                 imgUrl VARCHAR(255),
-                                spectacleId INT,
-                                FOREIGN KEY (spectacleId) REFERENCES Spectacle(id)
+                                spectacle_id INT,
+                                FOREIGN KEY (spectacle_id) REFERENCES Spectacle(id)
 );
 
 CREATE TABLE Billet (
-                        utilisateurId INT,
-                        spectacleId INT,
-                        quantite INT,
-                        PRIMARY KEY (utilisateurId, spectacleId),
-                        FOREIGN KEY (utilisateurId) REFERENCES Utilisateur(id),
-                        FOREIGN KEY (spectacleId) REFERENCES Spectacle(id)
+                        utilisateur_id INT,
+                        spectacle_id INT,
+                        quantiteDebout INT,
+                        quantiteAssise INT,
+                        PRIMARY KEY (utilisateur_id, spectacle_id),
+                        FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id),
+                        FOREIGN KEY (spectacle_id) REFERENCES Spectacle(id)
 );
 
 CREATE TABLE Spectacle2Artiste (
-                                   spectacleId INT,
-                                   artisteId INT,
-                                   PRIMARY KEY (spectacleId, artisteId),
-                                   FOREIGN KEY (spectacleId) REFERENCES Spectacle(id),
-                                   FOREIGN KEY (artisteId) REFERENCES Artiste(id)
+                                   spectacle_id INT,
+                                   artiste_id INT,
+                                   PRIMARY KEY (spectacle_id, artiste_id),
+                                   FOREIGN KEY (spectacle_id) REFERENCES Spectacle(id),
+                                   FOREIGN KEY (artiste_id) REFERENCES Artiste(id)
 );
+
+-- drop table Artiste;
+-- drop table Billet;
+-- drop table ImageSpectacle;
+-- drop table Lieu;
+-- drop table Soiree;
+-- drop table Spectacle;
+-- drop table Spectacle2Artiste;
+-- drop table Utilisateur;
