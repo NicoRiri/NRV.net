@@ -2,6 +2,7 @@
 
 namespace NRV\api\models;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Utilisateur extends \Illuminate\Database\Eloquent\Model
@@ -10,8 +11,8 @@ class Utilisateur extends \Illuminate\Database\Eloquent\Model
     protected $primaryKey = 'id';
     public $timestamps = false;
 
-    public function billets(): HasMany
+    public function spectacles(): BelongsToMany
     {
-        return $this->hasMany(Billet::class);
+        return $this->belongsToMany(Spectacle::class, "Billet");
     }
 }

@@ -23,11 +23,9 @@ class GetSpectacleAction extends AbstractAction
                 "details" => $spectacle,
                 "link" => [
                     "self" => [
-                        "href" => "/commandes/{$spectacle->id}"
+                        "href" => "/api/spectacle/{$spectacle->id}"
                     ],
-                    "valider" => [
-                        "href" => "/commandes/{$spectacle->id}"
-                    ]
+                    "soiree" => "/api/soiree/{$spectacle->soiree_id}"
                 ]
             ];
         }

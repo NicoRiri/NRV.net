@@ -2,22 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../Page/css/inscription_connexion.css">
+    <link rel="stylesheet" href="connexion.css">
     <title>Connexion</title>
 </head>
+<header id="monHeader">
+    <a class="myButton" href="google.com">Accueil</a>
+    <a class="myButton" href="google.com">Festivals</a>
+    <a class="myButton myIcon" href="google.com"><img class="icon" src="../icon/circle-user-solid.png" alt="icon"></a>
+</header>
 <body>
-<h1>Connexion</h1>
-<form>
-  <div>
-    <p>Mail</p>
-    <input type="email" id="mail" name="email" required>
-  </div>
-  <div>
-    <p>Mot de passe</p>
-      <input type="text" id="mdp" name="motdepasse" required>
-  </div>
-  <br><br>
-  <input type="submit" value="Se connecter" class="submit">
+<div class="background"></div>
+
+<form class="box">
+    <h1>Connexion</h1>
+    <div>
+        <p>Mail</p>
+        <input type="email" id="mail" name="email" required>
+    </div>
+    <div>
+        <p>Mot de passe</p>
+        <input type="text" id="mdp" name="motdepasse" required>
+    </div>
+    <br><br>
+    <input type="submit" value="Se connecter" class="submit myButton">
 </form>
 </body>
 </html>

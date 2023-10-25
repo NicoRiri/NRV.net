@@ -73,13 +73,10 @@ header {
 }
 
 .myIcon {
-  display: flex;
-  width: 3.7vw;
-  height: 3.7vw;
+  display: block;
+  width: 3vw;
+  height: 3vw;
   margin-left: auto;
-  border: none;
-  align-items: center;
-  justify-content: center;
 }
 
 .background {
@@ -151,92 +148,119 @@ th, td {
   background-color: #ffe7d4;
 }
 
-.popup {
-  visibility: hidden;
-  position: absolute;
-  right: 0;
-  width: 15%;
-}
-
-.myLog {
-  display: block;
-  text-align: center;
-  line-height: 3vw;
-  background: linear-gradient(to bottom, #ffb441 5%, #ff9900 100%);
-  background-color: #ff9900;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 30px;
-  font-weight: bolder;
-  padding: 6px 24px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #cc9f52;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-  border-radius: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.myLog {
+div {
+  margin-top: 30px;
   display: flex;
+  justify-content: space-around;
+}
+div > div {
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+div > div label {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border: #ff9900 1px solid;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  font-family: Calibri, sans-serif;
 }
 
-.miniIcon {
-  height: 2vw;
-  width: 3vw;
-  margin-right: 5%;
+.table {
+  flex-direction: column;
+  align-items: flex-end;
+}
+.table p {
+  margin-top: 0;
+  margin-right: 25px;
+}
+.table button {
+  margin-right: 25px;
+  margin-bottom: 10px;
+  width: max-content;
+  line-height: 0;
+  border: #ff9900 1px solid;
+  border-radius: 10px;
+  background-color: white;
+  font-size: 20px;
+}
+.table button:hover {
+  background-color: #e3e3e3;
 }
 
-.logo {
-  display: block;
+.carte {
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
-  margin-top: 2%;
-}
-
-.Affiche {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 0.4fr 1fr;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-  margin-top: 5%;
-  height: 75vh;
-}
-
-.titre {
-  grid-rows: 1;
-  grid-column: span 3;
-  text-align: center;
-}
-
-.ImgSpec {
-  width: 100%;
-  height: 100%;
-  margin-bottom: 5%;
-}
-
-.spec {
-  display: flex;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-  margin-top: 5%;
-  margin-bot: 5%;
-  grid-column: span 1;
-  grid-row: 2;
-  align-items: center;
+  width: max-content;
   flex-direction: column;
+  align-items: flex-start;
+}
+.carte > div {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.carte > div h3 {
+  margin: 0;
+  padding-right: 10px;
+  padding-left: 30px;
+}
+.carte input {
+  border: #ff9900 1px solid;
+  color: #ff9900;
+}
+.carte button {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  margin-left: 37.5%;
+  line-height: 0;
+  width: max-content;
+  border: #ff9900 1px solid;
+  border-radius: 10px;
+  background-color: white;
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+}
+.carte button:hover {
+  background-color: #e3e3e3;
 }
 
-.spec:hover {
-  transform: scale(1.2);
-  transition: 0.5s;
+.billet {
+  border: #ff9900 1px solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.billet h3 {
+  margin: 30px 0 0;
+}
+.billet ul {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.billet ul li {
+  list-style: none;
+  font-size: 20px;
+}
+.billet button {
+  margin: 0;
+  margin-left: 10px;
+  width: max-content;
+  line-height: 0;
+  border: #ff9900 1px solid;
+  border-radius: 10px;
+  background-color: white;
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+}
+.billet button:hover {
+  background-color: #e3e3e3;
 }
 
-/*# sourceMappingURL=accueil.css.map */
+/*# sourceMappingURL=paiement.css.map */
