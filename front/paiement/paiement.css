@@ -1,0 +1,266 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FF9640;
+  margin-bottom: 3%;
+}
+
+header {
+  z-index: 1;
+  background: linear-gradient(to bottom, #ffffff 5%, #ffd6b1 100%);
+  background-color: #ffd6b1;
+  display: flex;
+  width: 100%;
+  box-shadow: 0 0 1vh orange;
+}
+
+#monHeader {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 1%;
+  transition: margin-top 0.5s;
+}
+
+#monHeader.sticky {
+  position: fixed;
+  top: 0;
+  margin-top: 0;
+}
+
+#monHeader.sticky.reversed {
+  margin-top: 1%;
+  transition: margin-top 0.5s;
+}
+
+.myButton {
+  display: block;
+  height: 3vw;
+  text-align: center;
+  line-height: 3vw;
+  width: 10vw;
+  background: linear-gradient(to bottom, #ffffff 5%, #ffd6b1 100%);
+  background-color: #ffd6b1;
+  display: inline-block;
+  cursor: pointer;
+  color: #ff9900;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+
+.myButton:hover {
+  background: linear-gradient(to bottom, #fff1e1 5%, #fcc89c 100%);
+  background-color: #fcc89c;
+  transform: scale(1.1);
+  transition: 0.5s;
+  box-shadow: 0 0 1vh orange;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.icon {
+  display: block;
+  width: 3vw;
+  height: 3vw;
+}
+
+.myIcon {
+  display: block;
+  width: 3vw;
+  height: 3vw;
+  margin-left: auto;
+}
+
+.background {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  background: radial-gradient(circle, #ffdd00, #ff8800);
+  background-size: 300% 300%;
+  animation: moveGradient 30s reverse infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 100% 0;
+  }
+  25% {
+    background-position: 0 100%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+.box {
+  background: linear-gradient(to bottom, #ffffff 5%, #ffd6b1 100%);
+  background-color: #ffd6b1;
+  color: #ff9900;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+  border-radius: 1vw;
+  box-shadow: 0 0 1vh orange;
+}
+
+table {
+  width: 98%;
+  border-collapse: collapse;
+  margin: 1%;
+}
+
+th, td {
+  border: 5px solid orange;
+  padding: 8px;
+  text-align: left;
+}
+
+.principal {
+  background-color: #ff912e;
+  color: white;
+}
+
+.pair {
+  background-color: #ffd6b1;
+}
+
+.impair {
+  background-color: #ffe7d4;
+}
+
+div {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+div > div {
+  flex-direction: column;
+  align-items: center;
+}
+div > div label {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border: #ff9900 1px solid;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  font-family: Calibri, sans-serif;
+}
+
+.table {
+  flex-direction: column;
+  align-items: flex-end;
+}
+.table p {
+  margin-top: 0;
+  margin-right: 25px;
+}
+.table button {
+  margin-right: 25px;
+  margin-bottom: 10px;
+  width: max-content;
+  line-height: 0;
+  border: #ff9900 1px solid;
+  border-radius: 10px;
+  background-color: white;
+  font-size: 20px;
+}
+.table button:hover {
+  background-color: #e3e3e3;
+}
+
+.carte {
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.carte > div {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.carte > div h3 {
+  margin: 0;
+  padding-right: 10px;
+  padding-left: 30px;
+}
+.carte input {
+  border: #ff9900 1px solid;
+  color: #ff9900;
+}
+.carte button {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  margin-left: 37.5%;
+  line-height: 0;
+  width: max-content;
+  border: #ff9900 1px solid;
+  border-radius: 10px;
+  background-color: white;
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+}
+.carte button:hover {
+  background-color: #e3e3e3;
+}
+
+.billet {
+  border: #ff9900 1px solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.billet h3 {
+  margin: 30px 0 0;
+}
+.billet ul {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.billet ul li {
+  list-style: none;
+  font-size: 20px;
+}
+.billet button {
+  margin: 0;
+  margin-left: 10px;
+  width: max-content;
+  line-height: 0;
+  border: #ff9900 1px solid;
+  border-radius: 10px;
+  background-color: white;
+  font-family: Calibri, sans-serif;
+  font-size: 20px;
+}
+.billet button:hover {
+  background-color: #e3e3e3;
+}
+
+/*# sourceMappingURL=paiement.css.map */

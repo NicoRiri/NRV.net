@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="paiement.css">
+    <title>Paiement</title>
+</head>
+<header id="monHeader">
+    <a class="myButton" href="google.com">Accueil</a>
+    <a class="myButton" href="google.com">Festivals</a>
+    <a class="myButton" href="google.com">Panier</a>
+    <a class="myButton myIcon" href="google.com"><img class="icon" src="../icon/circle-user-solid.png" alt="icon"></a>
+</header>
+<body>
+<div class="background"></div>
+<div class="box">
+    <div>
+        <label>1</label>
+        <h2>Validation du panier</h2>
+    </div>
+    <div>
+        <label>2</label>
+        <h2>Paiement</h2>
+    </div>
+    <div>
+        <label>3</label>
+        <h2>Reçu du billet</h2>
+    </div>
+</div>
+<div class="table box">
+    <table >
+        <tr class="principal">
+            <th colspan="1">Nom</th>
+            <th colspan="1">Thème</th>
+            <th colspan="1">Date</th>
+            <th colspan="1">Tarif</th>
+        </tr>
+        <tr class="pair">
+            <td>La soirée</td>
+            <td>Le soir</td>
+            <td>18/03/2024</td>
+            <td>25€</td>
+        </tr>
+        <tr class="principal">
+            <td colspan="3">Total = </td>
+            <td>25€</td>
+        </tr>
+    </table>
+    <button class="myButton">Valider le panier</button>
+
+</div>
+
+<div class="box carte">
+    <div>
+        <h3>Numéro de carte</h3>
+        <input type="text" minlength="16" maxlength="16" name="numeroCarte">
+    </div>
+    <div>
+        <h3>Date d'expiration</h3>
+        <input type="number" min="1" max="12" step="1" value="1" name="mois"/>
+        <input type="number" min="1900" max="2099" step="1" value="2023" name="année"/>
+    </div>
+    <div>
+        <h3>Cryptogramme</h3>
+        <input type="number" min="0" max="999"  name="cryptogramme">
+    </div>
+    <button class="myButton">Valider</button>
+</div>
+
+<div class="box billet">
+    <h3>Billet(s)</h3>
+    <ul>
+        <li>La soirée (Le soir, 19h, 18/03/2024) <button class="myButton">Imprimer</button></li>
+    </ul>
+</div>
+
+
+</body>
+</html>
