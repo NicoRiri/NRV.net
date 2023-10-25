@@ -1,0 +1,11 @@
+<header id="monHeader">
+    <a class="myButton" href="google.com">Accueil</a>
+    <a class="myButton" href="google.com">Festivals</a>
+    <a class="myButton" href="google.com">Panier</a>
+    <a class="myButton myIcon" href="google.com"><img class="icon" src="../icon/circle-user-solid.png" alt="icon"></a>
+</header>
+(a mettre avant le body)
+
+
+<div class="background"></div>
+(a mettre en premier dans le body)

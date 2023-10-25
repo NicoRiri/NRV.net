@@ -1,0 +1,173 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FF9640;
+  margin-bottom: 3%;
+}
+
+header {
+  z-index: 1;
+  background: linear-gradient(to bottom, #ffffff 5%, #ffd6b1 100%);
+  background-color: #ffd6b1;
+  display: flex;
+  width: 100%;
+  box-shadow: 0 0 1vh orange;
+}
+
+#monHeader {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 1%;
+  transition: margin-top 0.5s;
+}
+
+#monHeader.sticky {
+  position: fixed;
+  top: 0;
+  margin-top: 0;
+}
+
+#monHeader.sticky.reversed {
+  margin-top: 1%;
+  transition: margin-top 0.5s;
+}
+
+.myButton {
+  display: block;
+  height: 3vw;
+  text-align: center;
+  line-height: 3vw;
+  width: 10vw;
+  background: linear-gradient(to bottom, #ffffff 5%, #ffd6b1 100%);
+  background-color: #ffd6b1;
+  display: inline-block;
+  cursor: pointer;
+  color: #ff9900;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+
+.myButton:hover {
+  background: linear-gradient(to bottom, #fff1e1 5%, #fcc89c 100%);
+  background-color: #fcc89c;
+  transform: scale(1.1);
+  transition: 0.5s;
+  box-shadow: 0 0 1vh orange;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.icon {
+  display: block;
+  width: 3vw;
+  height: 3vw;
+}
+
+.myIcon {
+  display: block;
+  width: 3vw;
+  height: 3vw;
+  margin-left: auto;
+}
+
+.background {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  background: radial-gradient(circle, #ffdd00, #ff8800);
+  background-size: 300% 300%;
+  animation: moveGradient 30s reverse infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 100% 0;
+  }
+  25% {
+    background-position: 0 100%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+.box {
+  background: linear-gradient(to bottom, #ffffff 5%, #ffd6b1 100%);
+  background-color: #ffd6b1;
+  color: #ff9900;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+  border-radius: 1vw;
+  box-shadow: 0 0 1vh orange;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 2%;
+}
+
+.Affiche {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.4fr 1fr;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  margin-top: 5%;
+  height: 75vh;
+}
+
+.titre {
+  grid-rows: 1;
+  grid-column: span 3;
+  text-align: center;
+}
+
+.ImgSpec {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 5%;
+}
+
+.spec {
+  display: flex;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  margin-top: 5%;
+  margin-bot: 5%;
+  grid-column: span 1;
+  grid-row: 2;
+  align-items: center;
+  flex-direction: column;
+}
+
+.spec:hover {
+  transform: scale(1.2);
+  transition: 0.5s;
+}
+
+/*# sourceMappingURL=accueil.css.map */
