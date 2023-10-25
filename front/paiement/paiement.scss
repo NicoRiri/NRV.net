@@ -1,0 +1,129 @@
+@import "../scss/base";
+
+div {
+  margin-top: 30px;
+  display: flex;
+
+  & > div {
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      background-color: white;
+      width: 50px;
+      height: 50px;
+      border: #ff9900 1px solid;
+      border-radius: 100%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 30px;
+      font-family: Calibri, sans-serif;
+    }
+  }
+  justify-content: space-around;
+}
+
+.table{
+  flex-direction: column;
+    align-items: flex-end;
+
+
+  p{
+    margin-top: 0;
+    margin-right: 25px;
+  }
+
+  button{
+    margin-right: 25px;
+    margin-bottom: 10px;
+    width: max-content;
+    line-height: 0;
+    border: #ff9900 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 20px;
+
+    &:hover {
+      background-color: #e3e3e3;
+    }
+  }
+}
+
+.carte {
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  flex-direction: column;
+  align-items: flex-start;
+
+  & > div {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    h3 {
+      margin: 0;
+      padding-right: 10px;
+      padding-left: 30px;
+    }
+  }
+  input{
+    border: #ff9900 1px solid;
+    color: #ff9900;
+  }
+
+  button {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    margin-left: 37.5%;
+    line-height: 0;
+    width: max-content;
+    border: #ff9900 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+
+    &:hover {
+      background-color: #e3e3e3;
+    }
+  }
+}
+
+.billet {
+  border: #ff9900 1px solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
+  flex-direction: column;
+  justify-content: flex-start;
+  h3 {
+    margin: 30px 0 0;
+  }
+
+  ul{
+    margin-top: 0;
+    margin-bottom: 5px;
+
+    li{
+      list-style: none;
+      font-size: 20px;
+    }
+  }
+
+  button {
+    margin: 0;
+    margin-left: 10px;
+    width: max-content;
+    line-height: 0;
+    border: #ff9900 1px solid;
+    border-radius: 10px;
+    background-color: white;
+    font-family: Calibri, sans-serif;
+    font-size: 20px;
+
+    &:hover {
+      background-color: #e3e3e3;
+    }
+  }
+}
