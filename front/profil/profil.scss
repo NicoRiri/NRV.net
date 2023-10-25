@@ -7,16 +7,26 @@
 
 .profile-header {
   text-align: center;
-  padding: 10px;
+  width: 150px;
+//le mettre au millieu
+  margin-left: 43%;
+  margin-bottom: 30px;
+  height: 80px;
 }
 .ticket-header {
   text-align: center;
-  padding: 10px;
+  width: 150px;
+  //le mettre au millieu
+  margin-left: 43%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 80px;
 }
 .profile-info {
-
   padding: 10px;
+
 }
+
 .ticket-table {
   padding: 10px;
 }
