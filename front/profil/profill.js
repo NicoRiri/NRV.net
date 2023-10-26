@@ -65,11 +65,13 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             billets.forEach(billet => {
+                if(billet.estAchete===1){
                 for (let i = 0; i < billet.quantiteAssise; i++) {
                     getSoireeDetails(billet.soiree_id);
                 }
                 for (let i = 0; i < billet.quantiteDebout; i++) {
                     getSoireeDetails(billet.soiree_id);
+                }
                 }
             });
 
