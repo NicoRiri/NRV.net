@@ -4,6 +4,7 @@ var isSticky = false;
 /*import {accessToken} from "../../js/token";*/
 
 const panier = document.querySelector('.connecter');
+
 let token=localStorage.getItem("token");
 
 if(token!=""){
