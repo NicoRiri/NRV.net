@@ -18,7 +18,7 @@ window.onscroll = function() {
 const bouton = document.querySelector('.myIcon');
 const popup = document.querySelector('.popup');
 
-console.log(popup.style);
+const panier = document.querySelector('.connecter');
 // Ajoutez un gestionnaire d'événement pour le clic sur le bouton
 bouton.addEventListener('click', function(event) {
     // Empêchez la propagation du clic pour éviter de fermer immédiatement la fenêtre modale
