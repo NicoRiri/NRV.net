@@ -44,3 +44,6 @@ function charger(donnee){
     ajouterSpectacle(pack1[1],specDeux);
     ajouterSpectacle(pack1[1],specTrois);
 }
+
+
+
