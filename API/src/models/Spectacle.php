@@ -25,7 +25,7 @@ class Spectacle extends \Illuminate\Database\Eloquent\Model
 
     public function artistes(): BelongsToMany
     {
-        return $this->belongsToMany(Artiste::class);
+        return $this->belongsToMany(Artiste::class, "Spectacle2Artiste", "artiste_id", "spectacle_id");
     }
 
     public function images(): HasMany

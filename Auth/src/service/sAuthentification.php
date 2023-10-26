@@ -71,5 +71,6 @@ class sAuthentification implements isAuthentification
         $newUser->nom = $nom;
         $newUser->prenom = $prenom;
         $newUser->save();
+        return true;
     }
 }

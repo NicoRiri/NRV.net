@@ -15,7 +15,7 @@ class sBillet
         $billsql = Billet::where("utilisateur_id", $id)->get();
         $billetArray = [];
         foreach ($billsql as $b){
-            $billetArray[] = new BilletDTO($b->utilisateur_id, $b->soiree_id, $b->quantiteDebout, $b->quantiteAssise);
+            $billetArray[] = new BilletDTO($b->utilisateur_id, $b->soiree_id, $b->quantiteDebout, $b->quantiteAssise, $b->estAchete);
         }
         return $billetArray;
     }

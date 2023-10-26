@@ -13,30 +13,21 @@ class InscriptionAction extends AbstractAction
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
 
-        $body = $request->getBody();
+        $body = $request->getParsedBody();
         $email = $body["email"];
         $password = $body["password"];
+        $password = password_hash($password, PASSWORD_BCRYPT);
         $nom = $body["nom"];
         $prenom = $body["prenom"];
 
-
-        $auth = $request->getHeader("Authorization");
-        $arr = explode(" ", $auth[0]);
-        $token = $arr[1];
         $sAuth = new sAuthentification();
+        $boo = $sAuth->signUp($email, $password, $nom, $prenom);
 
-        try {
-            $cpl = $sAuth->refresh($token);
-        } catch (\Exception $e){
-            throw new HttpUnauthorizedException($request, $e->getMessage());
-        }
-
-
-        if ($cpl != null){
-            $response->withStatus(200);
-            $response->getBody()->write(json_encode($cpl));
+        if ($boo){
+            $response->getBody()->write("c'est bon");
+            return $response;
         } else {
-            throw new HttpUnauthorizedException($request, "Mauvais token");
+            throw new HttpUnauthorizedException($request, "Pas inscrit");
         }
 
         return $response;

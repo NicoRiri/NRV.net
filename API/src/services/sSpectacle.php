@@ -2,6 +2,7 @@
 
 namespace NRV\Produit\api\services;
 
+use NRV\Produit\api\DTO\ArtisteDTO;
 use NRV\Produit\api\DTO\SpectacleDTO;
 use NRV\Produit\api\models\Spectacle;
 
@@ -17,7 +18,12 @@ class sSpectacle
             foreach ($s->images()->get() as $image){
                 $arrdeux[] = $image;
             }
-            $arr[] = new SpectacleDTO($s->id, $s->titre, $s->description, $s->soirees()->first()->id, $s->videoUrl, $s->horaire, $arrdeux);
+            $artiste = $s->artistes()->get();
+            $artisteArray = [];
+            foreach ($artiste as $a){
+                $artisteArray[] = new ArtisteDTO($a->id, $a->pseudonyme);
+            }
+            $arr[] = new SpectacleDTO($s->id, $s->titre, $s->description, $s->soirees()->first()->id, $s->videoUrl, $s->horaire, $arrdeux, $artisteArray);
         }
         return $arr;
     }
@@ -31,7 +37,12 @@ class sSpectacle
             foreach ($s->images()->get() as $image){
                 $arrdeux[] = $image;
             }
-            return new SpectacleDTO($s->id, $s->titre, $s->description, $s->soirees()->first()->id, $s->videoUrl, $s->horaire, $arrdeux);
+            $artiste = $s->artistes()->get();
+            $artisteArray = [];
+            foreach ($artiste as $a){
+                $artisteArray[] = new ArtisteDTO($a->id, $a->pseudonyme);
+            }
+            return new SpectacleDTO($s->id, $s->titre, $s->description, $s->soirees()->first()->id, $s->videoUrl, $s->horaire, $arrdeux, $artisteArray);
         }
     }
 

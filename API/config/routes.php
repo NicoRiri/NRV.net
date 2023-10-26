@@ -5,10 +5,14 @@ return function( \Slim\App $app):void {
 
     $app->post('/api/connexion[/]', \NRV\Produit\api\actions\ConnexionBasicAction::class)
         ->setName('connexionBasic');
+    $app->post('/api/inscription[/]', \NRV\Produit\api\actions\InscriptionAction::class)
+        ->setName('inscription');
     $app->get('/api/spectacle[/]', \NRV\Produit\api\actions\GetSpectacleAction::class)
         ->setName('spectacles');
     $app->get('/api/spectacle/{id}[/]', \NRV\Produit\api\actions\GetSpectacleByIdAction::class)
         ->setName('spectacle');
+    $app->get('/api/soiree[/]', \NRV\Produit\api\actions\GetSoireeAction::class)
+        ->setName('soirees');
     $app->get('/api/soiree/{id}[/]', \NRV\Produit\api\actions\GetSoireeByIdAction::class)
         ->setName('soiree');
     $app->get('/api/profile[/]', \NRV\Produit\api\actions\GetProfileAction::class)

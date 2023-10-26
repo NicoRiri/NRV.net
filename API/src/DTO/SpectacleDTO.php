@@ -11,17 +11,19 @@ class SpectacleDTO extends DTO
     public $VideoUrl;
     public $horaire;
     public $tabImg;
+    public $artisteArray;
 
     /**
      * @param $id
      * @param $titre
      * @param $description
-     * @param $soireeId
+     * @param $soiree_id
      * @param $VideoUrl
      * @param $horaire
      * @param $tabImg
+     * @param $artisteArray
      */
-    public function __construct($id, $titre, $description, $soiree_id, $VideoUrl, $horaire, $tabImg)
+    public function __construct($id, $titre, $description, $soiree_id, $VideoUrl, $horaire, $tabImg, $artisteArray)
     {
         $this->id = $id;
         $this->titre = $titre;
@@ -30,6 +32,7 @@ class SpectacleDTO extends DTO
         $this->VideoUrl = $VideoUrl;
         $this->horaire = $horaire;
         $this->tabImg = $tabImg;
+        $this->artisteArray = $artisteArray;
     }
 
 
