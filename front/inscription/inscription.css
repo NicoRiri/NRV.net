@@ -12,6 +12,8 @@ header {
   display: flex;
   width: 100%;
   box-shadow: 0 0 1vh orange;
+  margin: 0;
+  padding: 0;
 }
 
 #monHeader {
