@@ -4,6 +4,7 @@ var isSticky = false;
 /*import {accessToken} from "../../js/token";*/
 
 const panier = document.querySelector('.connecter');
+
 let token=localStorage.getItem("token");
 
 if(token!=""){
@@ -17,13 +18,11 @@ window.onscroll = function() {
     if (window.pageYOffset > 0 && !isSticky) {
         header.classList.add("sticky");
         popup.style.top="8%";
-        console.log(popup.style.top);
         header.classList.remove("reversed");
         isSticky = true;
     } else if (window.pageYOffset === 0 && isSticky) {
         header.classList.remove("sticky");
         popup.style.top="10%";
-        console.log(popup.style.top);
         header.classList.add("reversed");
         isSticky = false;
     }

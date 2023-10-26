@@ -1,4 +1,4 @@
-@import "../scss/base";
+@import "../base";
 .profile-container {
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
 .profile-header {
   text-align: center;
   width: 150px;
-//le mettre au millieu
+  //le mettre au millieu
   margin-left: 43%;
   margin-bottom: 30px;
   height: 80px;

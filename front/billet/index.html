@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Mes Billets</title>
-    <script type="module" src="../js/header.js"></script>
+    <script type="module" src="../header.js"></script>
     <link rel="stylesheet" href="billet.css">
 </head>
 <header id="monHeader">
@@ -13,18 +13,35 @@
     <button class="myButton myIcon"><img class="icon" src="../icon/circle-user-solid.png" alt="icon"></button>
 </header>
 <div class="popup box">
-    <a class="myLog" href="google.com"><img class="miniIcon" src="../icon/user-plus-solid.png" alt="icon"> Connection</a>
-    <a class="myLog" href="google.com"><img class="miniIcon" src="../icon/user-pen-solid.png" alt="icon"> Inscription</a>
+    <a class="myLog" href="google.com"><img class="miniIcon" src="../icon/user-plus-solid.png" alt="icon">
+        Connection</a>
+    <a class="myLog" href="google.com"><img class="miniIcon" src="../icon/user-pen-solid.png" alt="icon">
+        Inscription</a>
 </div>
 <body>
 <div class="background"></div>
 <div class="billet box">
     <div class="titre"><h2>Mon billet</h2></div>
-    <div class="contenu">
-        <p><img src="../img/billet.png" alt="billet"></p>
+
+    <div class="contenu" id="content">
+        <div class="text">
+            <h2>La soirée là</h2>
+            <p>Le 18/03/2024</p>
+            <p>Place assise</p>
+            <p>Laura Gallion</p>
+            <div>
+                <p>référence</p>
+                <p>Montant</p>
+            </div>
+        </div>
+        <img src="../img/billet.png" alt="billet">
     </div>
-    <button class="myLog">Imprimer le billet</button>
+
+    <button class="myLog" id="imprimer">Imprimer le billet</button>
 </div>
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.1/html2canvas.min.js"></script>
+
+<script type="module" src="printBillet.js"></script>
 </html>

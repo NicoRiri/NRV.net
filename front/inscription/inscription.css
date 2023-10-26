@@ -12,6 +12,8 @@ header {
   display: flex;
   width: 100%;
   box-shadow: 0 0 1vh orange;
+  margin: 0;
+  padding: 0;
 }
 
 #monHeader {
@@ -73,10 +75,13 @@ header {
 }
 
 .myIcon {
-  display: block;
-  width: 3vw;
-  height: 3vw;
+  display: flex;
+  width: 3.7vw;
+  height: 3.7vw;
   margin-left: auto;
+  border: none;
+  align-items: center;
+  justify-content: center;
 }
 
 .background {
@@ -146,6 +151,51 @@ th, td {
 
 .impair {
   background-color: #ffe7d4;
+}
+
+.popup {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  width: 15%;
+}
+
+.myLog {
+  display: block;
+  text-align: center;
+  line-height: 3vw;
+  background: linear-gradient(to bottom, #ffb441 5%, #ff9900 100%);
+  background-color: #ff9900;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  border-radius: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.myLog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.miniIcon {
+  height: 2vw;
+  width: 3vw;
+  margin-right: 5%;
+}
+
+.connecter {
+  visibility: hidden;
 }
 
 body {
