@@ -46,7 +46,6 @@ CREATE TABLE Billet (
                         quantiteDebout INT,
                         quantiteAssise INT,
                         PRIMARY KEY (utilisateur_id, soiree_id),
-                        FOREIGN KEY (utilisateur_id) REFERENCES Utilisateur(id),
                         FOREIGN KEY (soiree_id) REFERENCES Soiree(id)
 );
 

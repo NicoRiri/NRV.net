@@ -14,8 +14,8 @@ class Billet extends \Illuminate\Database\Eloquent\Model
     {
         return $this->belongsTo(Utilisateur::class);
     }
-    public function spectacles(): BelongsTo
+    public function soirees(): BelongsTo
     {
-        return $this->belongsTo(Spectacle::class);
+        return $this->belongsTo(Soiree::class);
     }
 }

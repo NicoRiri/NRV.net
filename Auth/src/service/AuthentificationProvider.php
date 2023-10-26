@@ -43,8 +43,8 @@ class AuthentificationProvider implements iAuthentificationProvider
     public function getProfile(string $id)
     {
         $res = Users::where('id', $id)->first();
-        return new UsersDTO($res->id, $res->email, $res->refresh_token, $res->refresh_token_expiration_date, $res->nom, $res->prenom);
-
+        $udtp =  new UsersDTO($res->id, $res->email, $res->refresh_token, $res->refresh_token_expiration_date, $res->nom, $res->prenom);
+        return $udtp;
     }
 
     public function registerNewUser()

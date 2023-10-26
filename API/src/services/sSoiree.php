@@ -19,7 +19,7 @@ class sSoiree
             $spectacle = $s->spectacles()->get();
 
 
-            $billets = Billet::where("spectacle_id", $id)->get();
+            $billets = Billet::where("soiree_id", $id)->get();
             $deboutRestant = $lieu->nbPlaceDebout;
             $assisRestant = $lieu->nbPlaceAssise;
             foreach ($billets as $b){

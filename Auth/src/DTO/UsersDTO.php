@@ -6,21 +6,13 @@ class UsersDTO
 {
 
     public $id;
-    public $email;
+    public string $email;
     public $refresh_token;
     public $refresh_token_expiration_date;
     public $nom;
     public $prenom;
 
-    /**
-     * @param $id
-     * @param $email
-     * @param $refresh_token
-     * @param $refresh_token_expiration_date
-     * @param $nom
-     * @param $prenom
-     */
-    public function __construct($id, $email, $refresh_token, $refresh_token_expiration_date, $nom, $prenom)
+    public function __construct($id, string $email, $refresh_token, $refresh_token_expiration_date, $nom, $prenom)
     {
         $this->id = $id;
         $this->email = $email;

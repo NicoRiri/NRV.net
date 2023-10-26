@@ -11,7 +11,8 @@ return function( \Slim\App $app):void {
 
     $app->post('/api/users/signin[/]', SignInAction::class)
         ->setName('signin');
-
+    $app->post('/api/users/inscription[/]', \NRV\auth\api\actions\InscriptionAction::class)
+        ->setName('inscription');
     $app->get('/api/users/validate[/]', ValidateAction::class)
         ->setName('valider');
     $app->post("/api/users/refresh[/]", RefreshAction::class)

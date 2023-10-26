@@ -1,9 +1,3 @@
-INSERT INTO Utilisateur (id, email, mdp, prenom, nom, refreshToken, estProducteur)
-VALUES
-    (1, 'utilisateur1@gmail.com', '$2y$10$j8yFIETGP3KF3mbaNK/GNODGSrvtUR4XzZ6upW0UNDHvPgYBp6mB.', 'John', 'Doe', 'NULL', 0),
-    (2, 'utilisateur2@gmail.com', '$2y$10$XOUaVoKqWLnKgwkhZpGUTOtEZze.kGTfaMj41aKpIzWmVr9KXDBbi', 'Jane', 'Doe', 'NULL', 1),
-    (3, 'utilisateur3@gmail.com', '$2y$10$QzYb7V7UU.dC3Gw7543mreJBUe2/OZsEnT/mOJ3eooMFe34zwUsKO', 'Bob', 'Smith', 'NULL', 1);
-
 INSERT INTO Lieu (id, nom, adresse, nbPlaceAssise, nbPlaceDebout)
 VALUES
     (1, 'Lieu 1', 'Adresse 1', 100, 50),
@@ -34,7 +28,7 @@ VALUES
     (2, 'https://image-url-2.com', 2),
     (3, 'https://image-url-3.com', 3);
 
-INSERT INTO Billet (utilisateur_id, spectacle_id, quantiteDebout, quantiteAssise)
+INSERT INTO Billet (utilisateur_id, soiree_id, quantiteDebout, quantiteAssise)
 VALUES
     (1, 1, 2, 7),
     (2, 3, 1, 8),
