@@ -25,9 +25,30 @@
   height: auto;
 }
 
-.myLog{
+img {
+  z-index: 1;
+}
 
+.text {
+  margin-top: 20px;
+  position: absolute;
+  z-index: 2;
+  margin-left: 10px;
+  color: white;
+  text-shadow: black 5px 5px 5px;
+
+  & > div {
+    margin-top: 30px;
+    display: flex;
+
+    p {
+      margin-right: 20px;
+    }
+
+  }
+}
+
+.myLog {
   margin-left: auto;
   margin-right: auto;
-
 }
