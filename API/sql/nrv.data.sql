@@ -28,11 +28,11 @@ VALUES
     (2, 'https://image-url-2.com', 2),
     (3, 'https://image-url-3.com', 3);
 
-INSERT INTO Billet (utilisateur_id, soiree_id, quantiteDebout, quantiteAssise)
+INSERT INTO Billet (utilisateur_id, soiree_id, quantiteDebout, quantiteAssise, estAchete)
 VALUES
-    (1, 1, 2, 7),
-    (2, 3, 1, 8),
-    (3, 2, 3, 9);
+    (1, 1, 2, 7, 0),
+    (2, 3, 1, 8, 0),
+    (3, 2, 3, 9, 1);
 
 INSERT INTO Spectacle2Artiste (spectacle_id, artiste_id)
 VALUES

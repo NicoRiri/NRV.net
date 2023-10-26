@@ -45,6 +45,7 @@ CREATE TABLE Billet (
                         soiree_id INT,
                         quantiteDebout INT,
                         quantiteAssise INT,
+                        estAchete TINYINT,
                         PRIMARY KEY (utilisateur_id, soiree_id),
                         FOREIGN KEY (soiree_id) REFERENCES Soiree(id)
 );
@@ -57,11 +58,10 @@ CREATE TABLE Spectacle2Artiste (
                                    FOREIGN KEY (artiste_id) REFERENCES Artiste(id)
 );
 
--- drop table Artiste;
--- drop table Billet;
--- drop table ImageSpectacle;
 -- drop table Lieu;
 -- drop table Soiree;
+-- drop table Artiste;
 -- drop table Spectacle;
+-- drop table ImageSpectacle;
+-- drop table Billet;
 -- drop table Spectacle2Artiste;
--- drop table Utilisateur;

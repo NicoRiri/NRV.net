@@ -60,6 +60,7 @@ class sSoiree
             $dataBillet->soiree_id = $soiree_id;
             $dataBillet->quantiteDebout = $quantite_debout;
             $dataBillet->quantiteAssise = $quantite_assise;
+            $dataBillet->estAchete = 0;
             $dataBillet->save();
         }
         return true;
