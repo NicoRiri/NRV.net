@@ -1,28 +1,19 @@
 <?php
 declare(strict_types=1);
 
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
-
 return function( \Slim\App $app):void {
 
-    $app->post('/api/connexiontoken[/]', \NRV\api\actions\ConnexionTokenAction::class)
-        ->setName('connexionToken');
-    $app->post('/api/connexionbasic[/]', \NRV\api\actions\ConnexionBasicAction::class)
+    $app->post('/api/connexion[/]', \NRV\Produit\api\actions\ConnexionBasicAction::class)
         ->setName('connexionBasic');
-    $app->get('/api/validetoken[/]', \NRV\api\actions\ValideTokenAction::class)
+    $app->get('/api/spectacle[/]', \NRV\Produit\api\actions\GetSpectacleAction::class)
         ->setName('spectacles');
-    $app->get('/api/spectacle[/]', \NRV\api\actions\GetSpectacleAction::class)
-        ->setName('spectacles');
-    $app->get('/api/spectacle/{id}[/]', \NRV\api\actions\GetSpectacleByIdAction::class)
+    $app->get('/api/spectacle/{id}[/]', \NRV\Produit\api\actions\GetSpectacleByIdAction::class)
         ->setName('spectacle');
-    $app->get('/api/soiree[/]', \NRV\api\actions\GetSoireeAction::class)
-        ->setName('soirees');
-    $app->get('/api/soiree/{id}[/]', \NRV\api\actions\GetSoireeByIdAction::class)
+    $app->get('/api/soiree/{id}[/]', \NRV\Produit\api\actions\GetSoireeByIdAction::class)
         ->setName('soiree');
-    $app->get('/api/profile[/]', \NRV\api\actions\GetProfileAction::class)
+    $app->get('/api/profile[/]', \NRV\Produit\api\actions\GetProfileAction::class)
         ->setName('profile');
-    $app->post('/api/achat[/]', \NRV\api\actions\PostAchatAction::class)
+    $app->post('/api/achat[/]', \NRV\Produit\api\actions\PostAchatAction::class)
         ->setName('achat');
 
     $app->add(function ($request, $handler) {

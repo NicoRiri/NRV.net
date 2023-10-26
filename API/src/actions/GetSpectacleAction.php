@@ -1,8 +1,8 @@
 <?php
 
-namespace NRV\api\actions;
+namespace NRV\Produit\api\actions;
 
-use NRV\api\services\sSpectacle;
+use NRV\Produit\api\services\sSpectacle;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 

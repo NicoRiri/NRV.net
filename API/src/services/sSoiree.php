@@ -1,11 +1,11 @@
 <?php
 
-namespace NRV\api\services;
+namespace NRV\Produit\api\services;
 
-use NRV\api\DTO\LieuDTO;
-use NRV\api\DTO\SoireeDTO;
-use NRV\api\models\Billet;
-use NRV\api\models\Soiree;
+use NRV\Produit\api\DTO\LieuDTO;
+use NRV\Produit\api\DTO\SoireeDTO;
+use NRV\Produit\api\models\Billet;
+use NRV\Produit\api\models\Soiree;
 
 class sSoiree
 {
@@ -34,6 +34,35 @@ class sSoiree
             }
             return new SoireeDTO($s->id, $s->nom, $s->date, $s->thematique, new LieuDTO($lieu->id, $lieu->nom, $lieu->adresse, $lieu->nbPlaceAssise, $lieu->nbPlaceDebout), $s->heureDebut, $s->heureFin, $lieu->nbPlaceAssise + $lieu->nbPlaceDebout, $specArrayId, $s->prixPlace, $assisRestant, $deboutRestant, $assisRestant + $deboutRestant);
         }
+    }
+
+    public function acheterPlaceSoiree(int $id, $soiree_id, $quantite_debout, $quantite_assise)
+    {
+
+        $soiree = Soiree::where("id", $soiree_id)->first();
+        $lieu = $soiree->lieux()->first();
+        $nbPlaceDeb = $lieu->nbPlaceDebout;
+        $nbPlaceAss = $lieu->nbPlaceAssise;
+
+        $nbPlaceAss -= $quantite_assise;
+        $nbPlaceDeb -= $quantite_debout;
+
+        if ($nbPlaceDeb < 0 ||$nbPlaceAss < 0){
+            return new \Exception("Plus assez de place disponible !");
+        }
+
+        $billets = Billet::where([["utilisateur_id", $id],["soiree_id", $soiree_id]])->first();
+        if ($billets != null){
+            Billet::where([["utilisateur_id", $id],["soiree_id", $soiree_id]])->update([["quantiteDebout" => $billets->quantiteDebout + $quantite_debout], ["quantiteAssise" => $billets->quantiteAssise + $quantite_assise]]);
+        } else {
+            $dataBillet = new Billet();
+            $dataBillet->utilisateur_id = $id;
+            $dataBillet->soiree_id = $soiree_id;
+            $dataBillet->quantiteDebout = $quantite_debout;
+            $dataBillet->quantiteAssise = $quantite_assise;
+            $dataBillet->save();
+        }
+        return true;
     }
 
 }

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Capsule\Manager;
-use pizzashop\shop\domain\service\Eloquent\Eloquent;
 use Slim\Factory\AppFactory;
 
 date_default_timezone_set('Europe/Paris');

@@ -11,11 +11,12 @@
 .Affiche{
   display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0.4fr 1fr;
+    grid-template-rows: 0.2fr 1fr;
   margin-left: 0.5%;
   margin-right: 0.5%;
   margin-top:5%;
   height: 75vh;
+  padding-bottom: 2%;
 }
 
 .titre{
@@ -34,7 +35,6 @@
   display:flex;
   margin-left: 0.5%;
   margin-right: 0.5%;
-  margin-top: 5%;
   margin-bot:5%;
   grid-column: span 1;
   grid-row: 2;

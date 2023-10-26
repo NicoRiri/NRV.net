@@ -2,8 +2,11 @@ composer.phar
 /vendor/
 /.idea/
 /API/vendor
+/Auth/vendor
 /API/config/db.ini
+/Auth/config/db.ini
 db.env
+db.auth.env
 
 
 # Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control

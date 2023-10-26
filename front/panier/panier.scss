@@ -1,0 +1,46 @@
+@import "../scss/base";
+.container {
+display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding: 20px;
+  grid-auto-flow: dense;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  grid-column: 1/span 2;
+  margin-bottom: 20px;
+}
+.item-image {
+  width: 200px;
+}
+.item-info {
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.order-summary {
+
+  padding: 20px;
+  text-align: left;
+  //je voudrais qu'elle soit en haut a droite
+  grid-column: 3/span 1;
+  grid-row: 1;
+margin-left: 10px;
+}
+.myLog {
+  padding: 15px 30px; /* Ajustez la taille du bouton ici */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  //le mettre au milieu
+    margin-left: 60px;
+
+}
+.Coomande{
+  font-weight: bold;
+  //souligner
+    text-decoration: underline;
+
+}
