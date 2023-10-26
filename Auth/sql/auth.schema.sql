@@ -12,7 +12,8 @@ CREATE TABLE `users` (
   `password` varchar(256) NOT NULL,
   `refresh_token` varchar(64) DEFAULT NULL,
   `refresh_token_expiration_date` timestamp NULL DEFAULT NULL,
-  `username` varchar(64) DEFAULT NULL,
+  `nom` varchar(64) DEFAULT NULL,
+  `prenom` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
