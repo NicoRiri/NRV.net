@@ -16,7 +16,7 @@ class sAuthentification implements isAuthentification
         $jwt = new ManagerJWT();
         $id = $pro->authCredentials($email, $password);
         if ($id != null){
-            $aToken = $jwt->createToken($email);
+            $aToken = $jwt->createToken($id);
             $refreshtoken = Uuid::uuid4();
             $date = new DateTime();
             $date->modify('+1 hour');
@@ -63,13 +63,13 @@ class sAuthentification implements isAuthentification
         throw new \Exception("Pas le bon refresh token");
     }
 
-    public function signUp($email, $password)
+    public function signUp($email, $password, $nom, $prenom)
     {
-        // TODO: Implement signUp() method.
-    }
-
-    public function activate($token_activation)
-    {
-        // TODO: Implement activate() method.
+        $newUser = new Users();
+        $newUser->email = $email;
+        $newUser->password = $password;
+        $newUser->nom = $nom;
+        $newUser->prenom = $prenom;
+        $newUser->save();
     }
 }
