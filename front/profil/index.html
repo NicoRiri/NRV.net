@@ -5,6 +5,7 @@
     <title>Profil</title>
     <link rel="stylesheet" href="profil.css">
     <script type="module" src="../js/header.js"></script>
+    <script type="module" src="profill.js"></script>
 </head>
 <header id="monHeader">
     <a class="myButton" href="google.com">Accueil</a>
@@ -23,44 +24,20 @@
         <h2>Mon Profil</h2>
     </div>
     <div class="profile-info box">
-        <h2>Nom : Doe</h2>
-        <h2>Prénom : Jane</h2>
-        <h2>E-mail : janedoe@example.com</h2>
+        <h2>Nom : <span id="nom"></span></h2>
+        <h2>Prénom : <span id="prenom"></span></h2>
+        <h2>E-mail : <span id="email"></span></h2>
     </div>
     <div class="ticket-header box">
         <h2>Mes billet</h2>
     </div>
     <div class="ticket-table box">
-        <table>
+        <table id="table-billets">
             <tr class="principal">
                 <th>Nom</th>
                 <th>Thème</th>
                 <th>Date</th>
                 <th>Horaire</th>
-            </tr>
-            <tr class="pair">
-                <td>Événement 1</td>
-                <td>Thème 1</td>
-                <td>01/01/2023</td>
-                <td>18:00</td>
-            </tr>
-            <tr class="impair">
-                <td>Événement 2</td>
-                <td>Thème 2</td>
-                <td>02/02/2023</td>
-                <td>20:00</td>
-            </tr>
-            <tr class="pair">
-                <td>Événement 1</td>
-                <td>Thème 1</td>
-                <td>01/01/2023</td>
-                <td>18:00</td>
-            </tr>
-            <tr class="impair">
-                <td>Événement 2</td>
-                <td>Thème 2</td>
-                <td>02/02/2023</td>
-                <td>20:00</td>
             </tr>
         </table>
     </div>
