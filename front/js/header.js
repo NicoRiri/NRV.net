@@ -2,13 +2,17 @@ var header = document.getElementById("monHeader");
 var isSticky = false;
 
 window.onscroll = function() {
+    popup.style.visibility = 'hidden';
     if (window.pageYOffset > 0 && !isSticky) {
         header.classList.add("sticky");
-        popup.style.visibility = 'hidden';
+        popup.style.top="8%";
+        console.log(popup.style.top);
         header.classList.remove("reversed");
         isSticky = true;
     } else if (window.pageYOffset === 0 && isSticky) {
         header.classList.remove("sticky");
+        popup.style.top="10%";
+        console.log(popup.style.top);
         header.classList.add("reversed");
         isSticky = false;
     }
