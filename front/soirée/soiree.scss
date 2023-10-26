@@ -1,0 +1,73 @@
+@import "../scss/base";
+
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  margin: 30px auto 0;
+
+  img{
+    width: 50%;
+    height: auto;
+  }
+
+  h1 {
+    margin: 10px 0;
+  }
+
+  & > div {
+    margin: 0;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+
+    h2 {
+      margin: 0;
+      padding: 20px;
+    }
+
+    .commander {
+      width: max-content;
+      line-height: 0;
+      border: #ff9900 1px solid;
+      border-radius: 10px;
+      background-color: white;
+      font-size: 20px;
+    }
+  }
+}
+
+.spectacle {
+  margin: 30px 0;
+  width: fit-content;
+  flex-direction: row;
+
+  img {
+    width: 25vw;
+    height: auto;
+    margin-right: 20px;
+  }
+
+  & > div {
+    margin-top: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+
+    & > div {
+      margin-top: 30px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    p {
+      width: 100%;
+    }
+
+    h2 {
+      margin: 0;
+      padding: 20px;
+    }
+  }
+}
