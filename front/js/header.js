@@ -1,6 +1,17 @@
 var header = document.getElementById("monHeader");
 var isSticky = false;
 
+/*import {accessToken} from "../../js/token";*/
+
+const panier = document.querySelector('.connecter');
+let token=localStorage.getItem("token");
+
+if(token!=""){
+    panier.style.visibility = 'visible';
+}else{
+    panier.style.visibility = 'hidden';
+}
+
 window.onscroll = function() {
     popup.style.visibility = 'hidden';
     if (window.pageYOffset > 0 && !isSticky) {
@@ -21,8 +32,6 @@ window.onscroll = function() {
 // Sélectionnez le bouton et l'élément .popup
 const bouton = document.querySelector('.myIcon');
 const popup = document.querySelector('.popup');
-
-const panier = document.querySelector('.connecter');
 // Ajoutez un gestionnaire d'événement pour le clic sur le bouton
 bouton.addEventListener('click', function(event) {
     // Empêchez la propagation du clic pour éviter de fermer immédiatement la fenêtre modale
