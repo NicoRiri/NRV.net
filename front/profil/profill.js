@@ -2,6 +2,8 @@
 // On récupère le token stocké dans le local storage
 let token = localStorage.getItem('token');
 
+let typos=false;
+
 // URL de l'API
 const apiUrl2 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree';
 const apiUrl = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/profile';
@@ -43,11 +45,19 @@ document.addEventListener("DOMContentLoaded", function () {
                         }
                     })
                     .then(soireeData => {
+                        //for each de chaque element dans soreeData
                         const row = tableBillets.insertRow();
-                        row.insertCell(0).textContent = soireeData.nom; // Nom de la soirée
-                        row.insertCell(1).textContent = soireeData.thematique; // Thématique de la soirée
-                        row.insertCell(2).textContent = soireeData.date; // Date de la soirée
-                        row.insertCell(3).textContent = soireeData.horaire; // Horaire de la soirée
+                        if(typos){
+                            row.classList.add("pair");
+                            typos=false;
+                        }else{
+                            row.classList.add("impair");
+                            typos=true;
+                        }
+                        row.insertCell(0).textContent = soireeData.soiree.details.nom; // Nom de la soirée
+                        row.insertCell(1).textContent = soireeData.soiree.details.thematique; // Thématique de la soirée
+                        row.insertCell(2).textContent = soireeData.soiree.details.date; // Date de la soirée
+                        row.insertCell(3).textContent = soireeData.soiree.details.heureDebut; // Horaire de la soirée
                     })
                     .catch(error => {
                         console.error('Erreur lors de la récupération des détails de la soirée:', error);
