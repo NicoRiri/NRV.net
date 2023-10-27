@@ -12,7 +12,7 @@ if(token!=null){
     let parent=document.querySelector(".popup").children;
     parent[0].innerHTML="Profil";
     parent[0].href="http://localhost:63342/NRV.net/front/profil/index.html";
-    parent[1].innerHTML="Deconnection";
+    parent[1].innerHTML="Deconnexion";
     parent[1].href="http://localhost:63342/NRV.net/front/index.html";
     parent[1].onclick=function(){
         localStorage.removeItem("token");
