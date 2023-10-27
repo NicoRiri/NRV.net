@@ -4,7 +4,11 @@ let apiUrl2 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree';
 let apiUrl3 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/achat';
 let token = localStorage.getItem('token');
 let prixTotalP=0;
-let NombreBillet=0;
+
+let couptotal=localStorage.getItem('coupTotal');
+if (couptotal === null) {
+    window.location.href = "../panier/index.html";
+}
 const headers = new Headers();
 headers.append('Authorization', `Bearer ${token}`);
 const fetchOptions = {
@@ -66,7 +70,6 @@ btnAfficherCarte.addEventListener("click", function () {
     boutoncouleur.style.backgroundColor = "white";
     boutoncouleur2.style.backgroundColor = "lightblue";
     const btnAfficherBillet = document.getElementById("btnAfficherBillet");
-    //faire en sorte que le bouton soit cliquable que si le formulaire est valide
     const formulairePaiement = document.getElementById("formulaire-paiement");
     formulairePaiement.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -95,7 +98,6 @@ fetch(apiUrl, fetchOptions)
     })
     .then(data => {
         console.log('Données reçues :', data);
-
         const tableauHTML = document.createElement('table');
         tableauHTML.innerHTML = `
             <tr class="principal">
@@ -179,7 +181,6 @@ fetch(apiUrl, fetchOptions)
                 <td>${prixTotalP}€</td>
             </tr>
         `;
-                        // Ajouter le tableau au DOM
                         tableauHTML.innerHTML=tableauHTML.innerHTML+totalLigneHTML;
                         const tableauContainer = document.querySelector('#tableau-container');
                         tableauContainer.appendChild(tableauHTML);

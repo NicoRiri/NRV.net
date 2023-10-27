@@ -10,13 +10,13 @@ const fetchOptions = {
     method: 'GET',
     headers: headers,
 };
-
+if (token === null) {
+    window.location.href = "../connexion/index.html";
+}
 function supprimer(soiree){
     const headers = new Headers();
     headers.append('Authorization', `Bearer ${token}`);
-    if (token === null) {
-        window.location.href = "../connexion.index.html";
-    }
+
     const requestBody = {
         soiree_id: soiree // Les données que vous voulez envoyer dans le corps de la requête
     };
@@ -48,7 +48,6 @@ fetch(apiUrl, fetchOptions)
         }
     })
     .then(data => {
-        // Traiter les données reçues ici
         console.log('Données reçues :', data);
         for (let i = 0; i < data.billets.length; i++) {
             if (data.billets[i].estAchete === 0) {
@@ -56,7 +55,6 @@ fetch(apiUrl, fetchOptions)
                 const quantiteDebout = data.billets[i].quantiteDebout;
                 const quantiteAssise = data.billets[i].quantiteAssise;
                 NombreBillet=NombreBillet+quantiteAssise+quantiteDebout;
-                // Afficher les soirées achetées
                 const soireeId = data.billets[i].soiree_id;
                 apiUrl2 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree'
                 apiUrl2 = `${apiUrl2}/${soireeId}`;
@@ -114,7 +112,6 @@ fetch(apiUrl, fetchOptions)
                                 const quantiteAssiseP = document.createElement('p');
                                 quantiteAssiseP.textContent = `Place Assise : ${quantiteAssise}`; // Mettez à jour la quantité assise
 
-                                // Ajoutez ces éléments à la structure HTML
                                 itemInfo.appendChild(h2);
                                 itemInfo.appendChild(prixP);
                                 itemInfo.appendChild(quantiteDeboutP);
@@ -136,25 +133,21 @@ fetch(apiUrl, fetchOptions)
                                 }
                                 item.appendChild(bouton);
 
-                                // Ajoutez le nouvel élément à la page HTML
                                 document.querySelector('.container').appendChild(item);
 
                                 const nombreBilletsP = document.querySelector('.order-summary p:nth-child(2)');
                                 nombreBilletsP.textContent = `Nombre d'Articles : ${NombreBillet}`;
 
-                                // Mise à jour du coût total
                                 const totalAPayerP = document.querySelector('.order-summary p:nth-child(3)');
                                 totalAPayerP.textContent = `Total à payer : ${prixTotalP}€`;
 
                                 const commanderButton = document.querySelector('#b');
                                 commanderButton.addEventListener('click', function() {
-                                    // Enregistrez le coutTotal dans localStorage
                                     localStorage.setItem('coutTotal', prixTotalP);
 
-                                    // Redirigez l'utilisateur vers la page de paiement
                                     console.log('Redirection vers la page de paiement');
                                     console.log(window.location.href='../paiement/index.html');
-                                    window.location.href = '../paiement/index.html'; // Remplacez par le chemin de votre page de paiement
+                                    window.location.href = '../paiement/index.html';
                                 });
 
 
