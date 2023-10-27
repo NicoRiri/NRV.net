@@ -1,8 +1,8 @@
 INSERT INTO Lieu (id, nom, adresse, nbPlaceAssise, nbPlaceDebout)
 VALUES
-    (1, 'Lieu 1', 'Adresse 1', 100, 50),
-    (2, 'Lieu 2', 'Adresse 2', 200, 100),
-    (3, 'Lieu 3', 'Adresse 3', 150, 75);
+    (1, 'Lieu 1', 'Adresse 1', 100, 50, 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10658.508162089971!2d5.126226402489653!3d48.09813860134465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ece5a067f6849f%3A0xc45cb934790e6a2a!2sPALESTRA!5e0!3m2!1sfr!2sfr!4v1698398137519!5m2!1sfr!2sfr'),
+    (2, 'Lieu 2', 'Adresse 2', 200, 100, 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10658.508162089971!2d5.126226402489653!3d48.09813860134465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ece5a067f6849f%3A0xc45cb934790e6a2a!2sPALESTRA!5e0!3m2!1sfr!2sfr!4v1698398137519!5m2!1sfr!2sfr'),
+    (3, 'Lieu 3', 'Adresse 3', 150, 75, 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10658.508162089971!2d5.126226402489653!3d48.09813860134465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ece5a067f6849f%3A0xc45cb934790e6a2a!2sPALESTRA!5e0!3m2!1sfr!2sfr!4v1698398137519!5m2!1sfr!2sfr');
 
 INSERT INTO Soiree (id, nom, date, thematique, lieu_id, heureDebut, heureFin, prixPlace)
 VALUES

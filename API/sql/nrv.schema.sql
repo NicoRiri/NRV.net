@@ -3,7 +3,8 @@ CREATE TABLE Lieu (
                       nom VARCHAR(255),
                       adresse VARCHAR(255),
                       nbPlaceAssise INT,
-                      nbPlaceDebout INT
+                      nbPlaceDebout INT,
+                      lien VARCHAR(255)
 );
 
 CREATE TABLE Soiree (

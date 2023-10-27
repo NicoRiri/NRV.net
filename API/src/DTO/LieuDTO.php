@@ -9,6 +9,7 @@ class LieuDTO extends DTO
     public $adresse;
     public $nbPlaceAssise;
     public $nbPlaceDebout;
+    public $lien;
 
     /**
      * @param $id
@@ -16,15 +17,15 @@ class LieuDTO extends DTO
      * @param $adresse
      * @param $nbPlaceAssise
      * @param $nbPlaceDebout
+     * @param $lien
      */
-    public function __construct($id, $nom, $adresse, $nbPlaceAssise, $nbPlaceDebout)
+    public function __construct($id, $nom, $adresse, $nbPlaceAssise, $nbPlaceDebout, $lien)
     {
         $this->id = $id;
         $this->nom = $nom;
         $this->adresse = $adresse;
         $this->nbPlaceAssise = $nbPlaceAssise;
         $this->nbPlaceDebout = $nbPlaceDebout;
+        $this->lien = $lien;
     }
-
-
 }

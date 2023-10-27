@@ -32,7 +32,7 @@ class sSoiree
             foreach ($spectacle as $spec){
                 $specArrayId[] = $spec->id;
             }
-            $tabSoiree[] = new SoireeDTO($s->id, $s->nom, $s->date, $s->thematique, new LieuDTO($lieu->id, $lieu->nom, $lieu->adresse, $lieu->nbPlaceAssise, $lieu->nbPlaceDebout), $s->heureDebut, $s->heureFin, $lieu->nbPlaceAssise + $lieu->nbPlaceDebout, $specArrayId, $s->prixPlace, $assisRestant, $deboutRestant, $assisRestant + $deboutRestant);
+            $tabSoiree[] = new SoireeDTO($s->id, $s->nom, $s->date, $s->thematique, new LieuDTO($lieu->id, $lieu->nom, $lieu->adresse, $lieu->nbPlaceAssise, $lieu->nbPlaceDebout, $lieu->lien), $s->heureDebut, $s->heureFin, $lieu->nbPlaceAssise + $lieu->nbPlaceDebout, $specArrayId, $s->prixPlace, $assisRestant, $deboutRestant, $assisRestant + $deboutRestant);
         }
 
         return $tabSoiree;
@@ -61,7 +61,7 @@ class sSoiree
             foreach ($spectacle as $spec){
                 $specArrayId[] = $spec->id;
             }
-            return new SoireeDTO($s->id, $s->nom, $s->date, $s->thematique, new LieuDTO($lieu->id, $lieu->nom, $lieu->adresse, $lieu->nbPlaceAssise, $lieu->nbPlaceDebout), $s->heureDebut, $s->heureFin, $lieu->nbPlaceAssise + $lieu->nbPlaceDebout, $specArrayId, $s->prixPlace, $assisRestant, $deboutRestant, $assisRestant + $deboutRestant);
+            return new SoireeDTO($s->id, $s->nom, $s->date, $s->thematique, new LieuDTO($lieu->id, $lieu->nom, $lieu->adresse, $lieu->nbPlaceAssise, $lieu->nbPlaceDebout, $lieu->lien), $s->heureDebut, $s->heureFin, $lieu->nbPlaceAssise + $lieu->nbPlaceDebout, $specArrayId, $s->prixPlace, $assisRestant, $deboutRestant, $assisRestant + $deboutRestant);
         }
     }
 
