@@ -48,7 +48,6 @@ fetch(apiUrl, fetchOptions)
         }
     })
     .then(data => {
-        console.log('Données reçues :', data);
         for (let i = 0; i < data.billets.length; i++) {
             if (data.billets[i].estAchete === 0) {
 
@@ -68,14 +67,13 @@ fetch(apiUrl, fetchOptions)
                         }
                     })
                     .then(soireeData => {
-                        console.log('Données reçues :', soireeData);
 
                         const nomSoiree = soireeData.soiree.details.nom;
                         const prix = soireeData.soiree.details.prixPlace;
                         const prixTotal = (prix * quantiteDebout) + (prix * quantiteAssise);
 
                        prixTotalP = prixTotal+prixTotalP;
-                       console.log(prixTotalP);
+
                         const totaldeplace = quantiteDebout + quantiteAssise;
                         let specto='http://docketu.iutnc.univ-lorraine.fr:42769'+soireeData.soiree.link.spectacle[0].href;
                         let image;
@@ -117,7 +115,7 @@ fetch(apiUrl, fetchOptions)
                                 itemInfo.appendChild(quantiteDeboutP);
                                 itemInfo.appendChild(quantiteAssiseP);
 
-                                console.log(item);
+
 
                                 item.appendChild(itemImage);
                                 item.appendChild(itemInfo);
@@ -128,7 +126,6 @@ fetch(apiUrl, fetchOptions)
                                 bouton.style.marginLeft='auto';
                                 bouton.style.marginTop='auto';
                                 bouton.onclick=function() {
-                                    console.log(data.billets[i].soiree_id+" "+data.billets[i].utilisateur_id);
                                     supprimer(data.billets[i].soiree_id);
                                 }
                                 item.appendChild(bouton);
@@ -143,10 +140,6 @@ fetch(apiUrl, fetchOptions)
 
                                 const commanderButton = document.querySelector('#b');
                                 commanderButton.addEventListener('click', function() {
-                                    localStorage.setItem('coutTotal', prixTotalP);
-
-                                    console.log('Redirection vers la page de paiement');
-                                    console.log(window.location.href='../paiement/index.html');
                                     window.location.href = '../paiement/index.html';
                                 });
 

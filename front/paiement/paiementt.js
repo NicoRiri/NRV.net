@@ -5,10 +5,6 @@ let apiUrl3 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/achat';
 let token = localStorage.getItem('token');
 let prixTotalP=0;
 
-let couptotal=localStorage.getItem('coupTotal');
-if (couptotal === null) {
-    window.location.href = "../panier/index.html";
-}
 const headers = new Headers();
 headers.append('Authorization', `Bearer ${token}`);
 const fetchOptions = {
@@ -97,7 +93,6 @@ fetch(apiUrl, fetchOptions)
         }
     })
     .then(data => {
-        console.log('Données reçues :', data);
         const tableauHTML = document.createElement('table');
         tableauHTML.innerHTML = `
             <tr class="principal">
@@ -127,7 +122,6 @@ fetch(apiUrl, fetchOptions)
                         }
                     })
                     .then(soireeData => {
-                        console.log('Données reçues :', soireeData);
 
                         const nomSoiree = soireeData.soiree.details.nom;
                         const prix = soireeData.soiree.details.prixPlace;
@@ -174,7 +168,7 @@ fetch(apiUrl, fetchOptions)
                         }
                         prixTotalP = prixTotalP + (quantiteAssise + quantiteDebout) * prix;
 
-                        console.log(prixTotalP);
+
                         const totalLigneHTML = `
             <tr class="principal">
                 <td colspan="4">Total :</td>

@@ -1,7 +1,7 @@
 var header = document.getElementById("monHeader");
 var isSticky = false;
 
-console.log(localStorage.getItem("token"));
+
 
 const panier = document.querySelector('.connecter');
 
@@ -10,7 +10,7 @@ let token=localStorage.getItem("token");
 let cheminDeLaPage = window.location.pathname;
 let segments = cheminDeLaPage.split('/');
 let deuxDerniersSegments = segments.slice(-2).join('/');
-console.log(deuxDerniersSegments);
+
 if(token!=null){
     panier.style.visibility = 'visible';
     let parent=document.querySelector(".popup").children;
