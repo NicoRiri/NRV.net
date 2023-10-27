@@ -12,8 +12,6 @@ header {
   display: flex;
   width: 100%;
   box-shadow: 0 0 1vh orange;
-  margin: 0;
-  padding: 0;
 }
 
 #monHeader {
@@ -55,19 +53,6 @@ header {
   margin-right: 0.5%;
 }
 
-.myButton:hover {
-  background: linear-gradient(to bottom, #fff1e1 5%, #fcc89c 100%);
-  background-color: #fcc89c;
-  transform: scale(1.1);
-  transition: 0.5s;
-  box-shadow: 0 0 1vh orange;
-}
-
-.myButton:active {
-  position: relative;
-  top: 1px;
-}
-
 .icon {
   display: block;
   width: 3vw;
@@ -82,6 +67,47 @@ header {
   border: none;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .myButton {
+    font-size: 15px;
+  }
+  .myIcon {
+    width: 5vw;
+    height: 5vw;
+  }
+  .icon {
+    display: block;
+    width: 4vw;
+    height: 4vw;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .myButton {
+    font-size: 20px;
+  }
+  .myIcon {
+    width: 4.7vw;
+    height: 4.7vw;
+  }
+  .icon {
+    display: block;
+    width: 3.5vw;
+    height: 3.5vw;
+  }
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #fff1e1 5%, #fcc89c 100%);
+  background-color: #fcc89c;
+  transform: scale(1.1);
+  transition: 0.5s;
+  box-shadow: 0 0 1vh orange;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
 }
 
 .background {

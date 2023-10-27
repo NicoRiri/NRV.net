@@ -12,6 +12,9 @@ const apiUrl = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/profile';
 const headers = new Headers();
 headers.append('Authorization', `Bearer ${token}`);
 
+if (token === null) {
+    window.location.href = "../connexion.index.html";
+}
 const fetchOptions = {
     method: 'GET',
     headers: headers,
@@ -27,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
         .then(data => {
-            console.log('Données récupérées avec succès:', data);
             const profile = data.profile;
             const nom = profile.nom;
             const prenom = profile.prenom;
@@ -66,12 +68,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             billets.forEach(billet => {
                 if(billet.estAchete===1){
-                for (let i = 0; i < billet.quantiteAssise; i++) {
-                    getSoireeDetails(billet.soiree_id);
-                }
-                for (let i = 0; i < billet.quantiteDebout; i++) {
-                    getSoireeDetails(billet.soiree_id);
-                }
+                    for (let i = 0; i < billet.quantiteAssise; i++) {
+                        getSoireeDetails(billet.soiree_id);
+                    }
+                    for (let i = 0; i < billet.quantiteDebout; i++) {
+                        getSoireeDetails(billet.soiree_id);
+                    }
                 }
             });
 
