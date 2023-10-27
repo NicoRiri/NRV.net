@@ -1,0 +1,112 @@
+@import "mixin";
+
+.container{
+    @include container("small");
+    @media screen and (min-width: 768px) {
+        @include container("medium");
+    }
+    @media screen and (min-width: 1024px) {
+        @include container("large");
+    }
+}
+
+.item{
+    @extend .box;
+    padding: 10px;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    &:hover{
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
+    .text{
+        font-size: small;
+    }
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.image{
+    display: block;
+    grid-column: span 1;
+    width: 100%;
+    height:100%;
+    border-radius: 1vw;
+}
+
+.filtre{
+    @extend .box;
+    margin-top: 10px;
+    border-radius: 0;
+    height: 55px;
+    overflow: hidden;
+}
+
+.filtreshown{
+    overflow:visible;
+    @include filtreshown("small");
+    @media screen and (min-width: 768px) {
+        @include filtreshown("medium");
+    }
+    @media screen and (min-width: 1024px) {
+        @include filtreshown("large");
+    }
+}
+
+.hidden{
+    @include hidden("small");
+    margin-top: 10px;
+    &>div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        select{
+            width: 100%;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        @include hidden("medium");
+    }
+    @media screen and (min-width: 1024px) {
+        @include hidden("large");
+    }   
+}
+
+.hiddenshown{
+    height: 200px;
+}
+
+.txtfiltre{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#exec{
+    display: block;
+    @include exec("small");
+    @media screen and (min-width: 768px) {
+        @include exec("medium");
+    }
+    @media screen and (min-width: 1024px) {
+        @include exec("large");
+    }
+}
+
+#lieux{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    width: 150px;
+    max-height: 150px;
+    overflow: scroll;
+    .lieu{
+        width:100%;
+    }
+}
