@@ -19,6 +19,8 @@ return function( \Slim\App $app):void {
         ->setName('profile');
     $app->post('/api/achat[/]', \NRV\Produit\api\actions\PostAchatAction::class)
         ->setName('achat');
+    $app->post('/api/achat[/]', \NRV\Produit\api\actions\PutAchatAction::class)
+        ->setName('modifAchat');
 
     $app->add(function ($request, $handler) {
         $response = $handler->handle($request);

@@ -19,4 +19,9 @@ class sBillet
         }
         return $billetArray;
     }
+
+    public function validateBillet($idUser)
+    {
+        Billet::where([["utilisateur_id", $idUser], ["estAchete", 0]])->update(["estAchete" => 1]);
+    }
 }
