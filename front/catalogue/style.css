@@ -203,11 +203,15 @@ th, td {
 }
 @media screen and (min-width: 768px) {
   .container {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
     grid-template-columns: 1fr 1fr;
   }
 }
 @media screen and (min-width: 1024px) {
   .container {
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -243,18 +247,34 @@ ul {
 .filtre {
   margin-top: 10px;
   border-radius: 0;
-  height: 60px;
+  height: 55px;
   overflow: hidden;
 }
 
-.filtre2 {
+.filtreshown {
   overflow: visible;
-  height: auto;
+  height: 400px;
+  overflow: hidden;
+}
+@media screen and (min-width: 768px) {
+  .filtreshown {
+    height: 300px;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .filtreshown {
+    height: 300px;
+    overflow: hidden;
+  }
 }
 
 .hidden {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  justify-items: center;
+  gap: 10px;
   margin-top: 10px;
 }
 .hidden > div {
@@ -263,11 +283,71 @@ ul {
   align-items: center;
   gap: 10px;
 }
+.hidden > div select {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .hidden {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .hidden {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+  }
+}
+
+.hiddenshown {
+  height: 200px;
+}
 
 .txtfiltre {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+#exec {
+  display: block;
+  width: 50vw;
+  height: 20vw;
+  line-height: 10vw;
+}
+@media screen and (min-width: 768px) {
+  #exec {
+    width: 25vw;
+    height: 15vw;
+    line-height: 7.5vw;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #exec {
+    width: 15vw;
+    height: 10vw;
+    line-height: 5vw;
+  }
+}
+
+#lieux {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  width: 150px;
+  max-height: 150px;
+  overflow: scroll;
+}
+#lieux .lieu {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

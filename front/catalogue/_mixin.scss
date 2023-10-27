@@ -1,0 +1,76 @@
+@mixin container($taille){
+    @if $taille == "small"{
+        display: grid;
+        grid-template-rows: repeat(auto-fit, 1fr);
+        grid-template-columns: 1fr;
+    }
+    @else if $taille == "medium"{
+        display: grid;
+        grid-template-rows: repeat(auto-fit, 1fr);
+        grid-template-columns: 1fr 1fr;
+    }
+    @else if $taille == "large"{
+        display: grid;
+        grid-template-rows: repeat(auto-fit, 1fr);
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@mixin hidden($taille){
+    @if $taille == "small"{
+        display:grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(auto-fit, 1fr);
+        justify-items: center;
+        gap: 10px;
+    }
+    @else if $taille == "medium"{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        gap: 10px;
+    }
+    @else if $taille == "large"{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        align-items: center;
+        justify-items: center;
+        gap: 10px;
+    }
+}
+
+@mixin exec($taille){
+    @if $taille == "small"{
+        width: 50vw;
+        height: 20vw;
+        line-height: 10vw;
+    }
+    @if $taille == "medium"{
+        width: 25vw;
+        height: 15vw;
+        line-height: 7.5vw;
+    }
+    @if $taille == "large"{
+        width: 15vw;
+        height: 10vw;
+        line-height: 5vw;
+    }
+}
+
+@mixin filtreshown($taille){
+    @if $taille == "small"{
+        height: 400px;
+        overflow: hidden;
+    }
+    @if $taille == "medium"{
+        height: 300px;
+        overflow: hidden;
+    }
+    @if $taille == "large"{
+        height: 300px;
+        overflow: hidden;
+    }
+}
