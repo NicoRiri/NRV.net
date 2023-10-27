@@ -21,7 +21,7 @@ function reset(elementParent){
 function ajouterSpectacle(elementParent,element) {
     const codeHTML = `
     <div class="spec box">
-      <h1>`+element.details.titre+`</h1>
+      <h1 class="sousTitre">`+element.details.titre+`</h1>
       <img class="ImgSpec" src=`+element.details.tabImg[0].imgUrl+` alt="Affiche">
     </div>
   `;

@@ -71,16 +71,16 @@ header {
 
 @media (max-width: 767px) {
   .myButton {
-    font-size: 10px;
+    font-size: 15px;
   }
   .myIcon {
-    width: 6.7vw;
-    height: 6.7vw;
+    width: 5vw;
+    height: 5vw;
   }
   .icon {
     display: block;
-    width: 5vw;
-    height: 5vw;
+    width: 4vw;
+    height: 4vw;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
