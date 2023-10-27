@@ -47,6 +47,27 @@ fetch(apiUrl, fetchOptions)
                     const prix = soireeData.soiree.details.prixPlace;
                     console.log(prix);
                     const prixTotal = (prix * quantiteDebout) + (prix * quantiteAssise);
+                    let specto='http://docketu.iutnc.univ-lorraine.fr:42769'+soireeData.soiree.link.spectacle[0].href;
+                    let image;
+                    fetch(specto)
+                        .then(response => {
+                            if (response.status === 200) {
+                                return response.json();
+                            } else {
+                                throw new Error('La requête a échoué');
+                            }
+                        })
+                        .then(dataImg => {
+                            image=dataImg.spectacle.details.tabImg[0].imgUrl;
+                            //LA SUITE ICI
+                        })
+
+                        .catch(error => {
+                            console.error('Une erreur s\'est produite lors de la récupération des détails de la soirée :', error);
+                        })
+                        .catch(error => {
+                            console.error('Une erreur s\'est produite :', error);
+                        });
                 })
 
                 .catch(error => {
