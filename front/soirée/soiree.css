@@ -252,6 +252,9 @@ div > div h2 {
   width: 100%;
   text-align: center;
 }
+div > div h3 {
+  font-size: 35px;
+}
 div > div .commander {
   width: max-content;
   line-height: 0;
