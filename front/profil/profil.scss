@@ -1,57 +1,87 @@
 @import "../base";
-.profile-container {
-  display: flex;
-  flex-direction: column;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
   padding: 20px;
 }
 
-.profile-header {
-  text-align: center;
-  width: 150px;
-  //le mettre au millieu
-  margin-left: 43%;
-  margin-bottom: 30px;
-  height: 80px;
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
-.ticket-header {
-  text-align: center;
-  width: 150px;
-  //le mettre au millieu
-  margin-left: 43%;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  height: 80px;
-}
-.profile-info {
+.profile-header, .profile-info, .ticket-header, .ticket-table {
+  border: 2px solid #000;
   padding: 10px;
-
+  margin-bottom: 20px;
 }
 
-.ticket-table {
-  padding: 10px;
-}
-
-table {
-  width: 98%;
-  border-collapse: collapse;
-  margin:1%;
-}
 
 th, td {
-  border: 5px solid orange;
-  padding: 8px;
-  text-align: left;
+  font-size: 30px;
+}
+.ticket-header,.profile-header{
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
-.principal{
-  background-color: #ff912e;
-  color:white;
+h2 {
+  font-size: 24px;
+}
+@media (min-width: 900px) {
+  body {
+    padding: 20px;
+  }
+  .principal, .box {
+    font-size: 24px;
+  }
+  th, td {
+    font-size: 30px;
+  }
+  .profile-container {
+    padding: 20px;
+  }
+
 }
 
-.pair{
-  background-color:#ffd6b1;
+
+@media (min-width: 600px) and (max-width: 900px) {
+  body {
+    padding: 10px;
+  }
+  .principal,.box{
+    font-size: 20px;
+  }
+  th, td {
+    font-size: 20px;
+  }
+  .profile-container {
+    padding: 10px;
+  }
 }
 
-.impair{
-  background-color: #ffe7d4;
+@media (min-width: 320px) and (max-width: 600px) {
+  body {
+    padding: 5px;
+  }
+  th, td {
+    font-size: 10px;
+  }
+  .profile-container {
+    padding: 5px;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+  .principal,.box{
+    font-size: 15px;
+  }
+  .profile-info h2:nth-child(3) {
+    overflow: hidden;
+    white-space: pre-wrap;
+  }
 }
