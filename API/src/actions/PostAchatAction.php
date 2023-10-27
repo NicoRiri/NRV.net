@@ -29,15 +29,15 @@ class PostAchatAction extends AbstractAction
         } catch (ClientException $e) {
             throw new HttpUnauthorizedException($request, "Mauvais log");
         }
-        //
-        $profile = $res->getBody();
-        $body = $request->getBody();
+        $profile = json_decode($res->getBody()->getContents(), true);
+        $body = $request->getParsedBody();
         $soiree_id = $body["soiree_id"];
         $quantite_debout = $body["quantite_debout"];
         $quantite_assise = $body["quantite_assise"];
 
         $sSoiree = new sSoiree();
         $sSoiree->acheterPlaceSoiree($profile["id"], $soiree_id, $quantite_debout, $quantite_assise);
+        $response->getBody()->write("Billets achetés");
 
         return $response;
     }

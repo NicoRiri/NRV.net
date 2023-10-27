@@ -6,7 +6,7 @@ fetch("http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree/")
         return response.json();
     })
     .then(data => {
-        let soiree = data.soiree[0];
+        let soiree = data.soiree[1];
         document.getElementsByClassName("titre")[0].innerText = soiree.nom;
         document.getElementsByTagName("h2")[0].innerText = "Theme : " + soiree.thematique;
         document.getElementsByTagName("h2")[1].innerText = soiree.date;
@@ -28,10 +28,12 @@ fetch("http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree/")
                     let description = spectacle.description;
                     let video = spectacle.VideoUrl;
                     let artiste = "";
+                    let lien = "../detailspectacle/index.html?id=" + spectacle.id;
                     for (let j = 0; j < spectacle.artisteArray.length; j++) {
                         artiste += spectacle.artisteArray[j].pseudonyme + " ";
                     }
                     document.getElementsByTagName("body")[0].innerHTML += `
+                        <a href="`+ lien +`">
                         <div class="spectacle box">
                             <img src="` + imgsrc + `">
                                 <div>
@@ -43,8 +45,7 @@ fetch("http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree/")
                                     <h4>artiste(s): ` + artiste + `</h4>
                                 </div>
                                 <iframe width="560" height="315" src="` + video + `" allowfullscreen></iframe>
-
-                        </div>`;
+                        </div></a>`;
                 });
         }
 
