@@ -257,7 +257,6 @@ div > div h3 {
 }
 div > div .commander {
   width: max-content;
-  line-height: 0;
   border: #ff9900 1px solid;
   border-radius: 10px;
   background-color: white;
