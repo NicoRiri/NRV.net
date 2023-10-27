@@ -105,6 +105,17 @@ fetch(apiUrl, fetchOptions)
                                 const totalAPayerP = document.querySelector('.order-summary p:nth-child(3)');
                                 totalAPayerP.textContent = `Total à payer : ${prixTotalP}€`;
 
+                                const commanderButton = document.querySelector('#b');
+                                commanderButton.addEventListener('click', function() {
+                                    // Enregistrez le coutTotal dans localStorage
+                                    localStorage.setItem('coutTotal', prixTotalP);
+
+                                    // Redirigez l'utilisateur vers la page de paiement
+                                    console.log('Redirection vers la page de paiement');
+                                    console.log(window.location.href='../paiement/index.html');
+                                    window.location.href = '../paiement/index.html'; // Remplacez par le chemin de votre page de paiement
+                                });
+
 
                             })
 
