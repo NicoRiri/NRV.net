@@ -236,11 +236,15 @@ th, td {
   visibility: hidden;
 }
 
+a {
+  text-decoration: none;
+}
+
 div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 97%;
+  width: 90%;
   margin: 30px auto 0;
 }
 div img {
