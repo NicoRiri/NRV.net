@@ -8,12 +8,15 @@ const panier = document.querySelector('.connecter');
 let token=localStorage.getItem("token");
 
 let cheminDeLaPage = window.location.pathname;
+let segments = cheminDeLaPage.split('/');
+let deuxDerniersSegments = segments.slice(-2).join('/');
+console.log(deuxDerniersSegments);
 if(token!=null){
     panier.style.visibility = 'visible';
     let parent=document.querySelector(".popup").children;
     parent[0].innerHTML="Profil";
     parent[1].innerHTML="Deconnexion";
-    if(cheminDeLaPage=="/NRV.net/front/Index.html"){
+    if(deuxDerniersSegments=="front/Index.html"){
         parent[0].href="../front/profil/index.html";
         parent[1].href="../front/index.html";
     }else{

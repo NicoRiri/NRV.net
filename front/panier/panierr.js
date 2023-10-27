@@ -92,8 +92,21 @@ fetch(apiUrl, fetchOptions)
                                 itemInfo.appendChild(quantiteDeboutP);
                                 itemInfo.appendChild(quantiteAssiseP);
 
+                                console.log(item);
+
                                 item.appendChild(itemImage);
                                 item.appendChild(itemInfo);
+
+                                const bouton= document.createElement('button');
+                                bouton.className='myLog';
+                                bouton.textContent='Supprimer';
+                                bouton.style.marginLeft='auto';
+                                bouton.style.marginTop='auto';
+                                bouton.onclick=function() {
+                                    console.log(data.billets[i].soiree_id+" "+data.billets[i].utilisateur_id);
+                                    supprimer(data.billets[i].soiree_id,data.billets[i].utilisateur_id);
+                                }
+                                item.appendChild(bouton);
 
                                 // Ajoutez le nouvel élément à la page HTML
                                 document.querySelector('.container').appendChild(item);
@@ -130,3 +143,15 @@ fetch(apiUrl, fetchOptions)
     .catch(error => {
         console.error('Une erreur s\'est produite :', error);
     });
+
+function supprimer(soiree,user){
+    const headers = new Headers();
+    headers.append('Authorization', `Bearer ${token}`);
+    if (token === null) {
+        window.location.href = "../connexion.index.html";
+    }
+    const fetchOptions = {
+        method: 'GET',
+        headers: headers,
+    };
+}
