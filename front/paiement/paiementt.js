@@ -146,14 +146,21 @@ fetch(apiUrl, fetchOptions)
 
                         // Mettre à jour le total ici si nécessaire
                         console.log(prixTotalP);
+
                     })
                     .catch(error => {
                         console.log(error.message);
                     });
             }
         }
-
+        const totalLigneHTML = `
+            <tr>
+                <td colspan="4">Total :</td>
+                <td>${prixTotalP}€</td>
+            </tr>
+        `;
         // Ajouter le tableau au DOM
+        tableauHTML.innerHTML = tableauHTML.innerHTML + totalLigneHTML;
         const tableauContainer = document.querySelector('#tableau-container');
         tableauContainer.appendChild(tableauHTML);
     })
