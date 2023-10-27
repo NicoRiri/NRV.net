@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const email = profile.email;
             const billets = data.billets;
             const tableBillets = document.getElementById("table-billets");
+            console.log(data);
 
             function getSoireeDetails(soireeId) {
                 fetch(`${apiUrl2}/${soireeId}`)
@@ -60,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         row.insertCell(1).textContent = soireeData.soiree.details.thematique; // Thématique de la soirée
                         row.insertCell(2).textContent = soireeData.soiree.details.date; // Date de la soirée
                         row.insertCell(3).textContent = soireeData.soiree.details.heureDebut; // Horaire de la soirée
+                        row.insertCell(4).innerHTML = `<a href="../billet/index.html?idsoiree=${soireeData.soiree.details.id}&iduser=${profile.id}">Voir le billet</a>`; // Horaire de la soirée
                     })
                     .catch(error => {
                         console.error('Erreur lors de la récupération des détails de la soirée:', error);
