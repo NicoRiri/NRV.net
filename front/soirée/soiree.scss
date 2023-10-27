@@ -1,11 +1,13 @@
 @import "../base";
 
-
+a{
+  text-decoration: none;
+}
 div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 97%;
+  width: 90%;
   margin: 30px auto 0;
 
   img{
@@ -38,7 +40,6 @@ div {
 
     .commander {
       width: max-content;
-      line-height: 0;
       border: #ff9900 1px solid;
       border-radius: 10px;
       background-color: white;

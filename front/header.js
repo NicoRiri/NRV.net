@@ -1,14 +1,33 @@
 var header = document.getElementById("monHeader");
 var isSticky = false;
 
-/*import {accessToken} from "../../js/token";*/
+console.log(localStorage.getItem("token"));
 
 const panier = document.querySelector('.connecter');
 
 let token=localStorage.getItem("token");
 
-if(token!=""){
+let cheminDeLaPage = window.location.pathname;
+let segments = cheminDeLaPage.split('/');
+let deuxDerniersSegments = segments.slice(-2).join('/');
+console.log(deuxDerniersSegments);
+if(token!=null){
     panier.style.visibility = 'visible';
+    let parent=document.querySelector(".popup").children;
+    parent[0].innerHTML="Profil";
+    parent[1].innerHTML="Deconnexion";
+    if(deuxDerniersSegments=="front/Index.html"){
+        parent[0].href="../front/profil/index.html";
+        parent[1].href="../front/index.html";
+    }else{
+        parent[0].href="../profil/index.html";
+        parent[1].href="../index.html";
+    }
+    parent[1].onclick=function(){
+        localStorage.removeItem("token");
+    }
+
+
 }else{
     panier.style.visibility = 'hidden';
 }
