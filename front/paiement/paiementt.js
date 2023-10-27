@@ -81,7 +81,7 @@ fetch(apiUrl, fetchOptions)
 
         const tableauHTML = document.createElement('table');
         tableauHTML.innerHTML = `
-            <tr>
+            <tr class="principal">
                 <th>Nom</th>
                 <th>Thème</th>
                 <th>Date</th>
@@ -89,7 +89,7 @@ fetch(apiUrl, fetchOptions)
                 <th>Tarif</th>
             </tr>
         `;
-
+        let status="pair";
         for (let i = 0; i < data.billets.length; i++) {
             if (data.billets[i].estAchete === 0) {
                 const quantiteDebout = data.billets[i].quantiteDebout;
@@ -118,7 +118,7 @@ fetch(apiUrl, fetchOptions)
 
                         for (let j = 0; j < quantiteAssise; j++) {
                             const ligneHTML = `
-                                <tr>
+                                <tr class="`+status+`">
                                     <td>${nomSoiree}</td>
                                     <td>${theme}</td>
                                     <td>${date}</td>
@@ -128,11 +128,16 @@ fetch(apiUrl, fetchOptions)
                             `;
                             tableauHTML.innerHTML += ligneHTML;
                             prixTotalP += tarifIndividuel;
+                            if(status==="pair"){
+                                status="impair";
+                            }else{
+                                status="pair";
+                            }
                         }
 
                         for (let k = 0; k < quantiteDebout; k++) {
                             const ligneHTML = `
-                                <tr>
+                                <tr class="\`+status+\`">
                                     <td>${nomSoiree}</td>
                                     <td>${theme}</td>
                                     <td>${date}</td>
@@ -142,10 +147,25 @@ fetch(apiUrl, fetchOptions)
                             `;
                             tableauHTML.innerHTML += ligneHTML;
                             prixTotalP += tarifIndividuel;
+                            if(status==="pair"){
+                                status="impair";
+                            }else{
+                                status="pair";
+                            }
                         }
 
                         // Mettre à jour le total ici si nécessaire
                         console.log(prixTotalP);
+                        const totalLigneHTML = `
+            <tr class="principal">
+                <td colspan="4">Total :</td>
+                <td>${prixTotalP}€</td>
+            </tr>
+        `;
+                        // Ajouter le tableau au DOM
+                        tableauHTML.innerHTML=tableauHTML.innerHTML+totalLigneHTML;
+                        const tableauContainer = document.querySelector('#tableau-container');
+                        tableauContainer.appendChild(tableauHTML);
 
                     })
                     .catch(error => {
@@ -153,16 +173,6 @@ fetch(apiUrl, fetchOptions)
                     });
             }
         }
-        const totalLigneHTML = `
-            <tr>
-                <td colspan="4">Total :</td>
-                <td>${prixTotalP}€</td>
-            </tr>
-        `;
-        // Ajouter le tableau au DOM
-        tableauHTML.innerHTML = tableauHTML.innerHTML + totalLigneHTML;
-        const tableauContainer = document.querySelector('#tableau-container');
-        tableauContainer.appendChild(tableauHTML);
     })
     .catch(error => {
         console.log(error.message);
