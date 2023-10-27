@@ -11,6 +11,34 @@ const fetchOptions = {
     headers: headers,
 };
 
+function supprimer(soiree){
+    const headers = new Headers();
+    headers.append('Authorization', `Bearer ${token}`);
+    if (token === null) {
+        window.location.href = "../connexion.index.html";
+    }
+    const requestBody = {
+        soiree_id: soiree // Les données que vous voulez envoyer dans le corps de la requête
+    };
+    const fetchOptions = {
+        method: 'DELETE',
+        headers: headers,
+        body: JSON.stringify(requestBody) // Convertir les données en JSON et les envoyer dans le corps
+    };
+    fetch(apiUrl, fetchOptions)
+        .then(response => {
+            if (response.status === 200) {
+                return response.json(); // Convertir la réponse en JSON
+            } else {
+                throw new Error('Échec de la requête Fetch');
+            }
+        })
+        .catch(error => {
+            console.error('Erreur lors de la récupération des données:', error);
+        });
+    //window.location.href = "../panier/index.html";
+}
+
 fetch(apiUrl, fetchOptions)
     .then(response => {
         if (response.status === 200) {
@@ -104,7 +132,7 @@ fetch(apiUrl, fetchOptions)
                                 bouton.style.marginTop='auto';
                                 bouton.onclick=function() {
                                     console.log(data.billets[i].soiree_id+" "+data.billets[i].utilisateur_id);
-                                    supprimer(data.billets[i].soiree_id,data.billets[i].utilisateur_id);
+                                    supprimer(data.billets[i].soiree_id);
                                 }
                                 item.appendChild(bouton);
 
@@ -143,15 +171,3 @@ fetch(apiUrl, fetchOptions)
     .catch(error => {
         console.error('Une erreur s\'est produite :', error);
     });
-
-function supprimer(soiree,user){
-    const headers = new Headers();
-    headers.append('Authorization', `Bearer ${token}`);
-    if (token === null) {
-        window.location.href = "../connexion.index.html";
-    }
-    const fetchOptions = {
-        method: 'GET',
-        headers: headers,
-    };
-}
