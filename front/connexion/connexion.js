@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(data => {
                 localStorage.setItem("token", data.accesToken);
                 console.log(window.location.href);
-                window.location.href = "http://localhost:63342/NRV.net/front/Index.html";
+                window.location.href = "../Index.html";
             })
             .catch(error => {
                 console.error(`Erreur lors de la requête FETCH : ${error.message}`);
