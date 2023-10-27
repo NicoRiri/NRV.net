@@ -1,14 +1,24 @@
 var header = document.getElementById("monHeader");
 var isSticky = false;
 
-/*import {accessToken} from "../../js/token";*/
+console.log(localStorage.getItem("token"));
 
 const panier = document.querySelector('.connecter');
 
 let token=localStorage.getItem("token");
 
-if(token!=""){
+if(token!=null){
     panier.style.visibility = 'visible';
+    let parent=document.querySelector(".popup").children;
+    parent[0].innerHTML="Profil";
+    parent[0].href="http://localhost:63342/NRV.net/front/profil/index.html";
+    parent[1].innerHTML="Deconnection";
+    parent[1].href="http://localhost:63342/NRV.net/front/index.html";
+    parent[1].onclick=function(){
+        localStorage.removeItem("token");
+    }
+
+
 }else{
     panier.style.visibility = 'hidden';
 }

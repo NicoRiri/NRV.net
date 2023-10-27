@@ -32,6 +32,34 @@ header {
   transition: margin-top 0.5s;
 }
 
+.myLog {
+  display: block;
+  text-align: center;
+  line-height: 3vw;
+  background: linear-gradient(to bottom, #ffb441 5%, #ff9900 100%);
+  background-color: #ff9900;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  border-radius: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.myLog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .myButton {
   display: block;
   height: 3vw;
@@ -69,7 +97,15 @@ header {
   justify-content: center;
 }
 
+.sousLog {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
 @media (max-width: 767px) {
+  .sousLog {
+    font-size: 0.5em;
+  }
   .myButton {
     font-size: 15px;
   }
@@ -84,6 +120,9 @@ header {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
+  .sousLog {
+    font-size: 0.8em;
+  }
   .myButton {
     font-size: 20px;
   }
@@ -183,35 +222,8 @@ th, td {
   visibility: hidden;
   position: absolute;
   right: 0;
-  width: 15%;
-}
-
-.myLog {
-  display: block;
-  text-align: center;
-  line-height: 3vw;
-  background: linear-gradient(to bottom, #ffb441 5%, #ff9900 100%);
-  background-color: #ff9900;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 30px;
-  font-weight: bolder;
-  padding: 6px 24px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #cc9f52;
-  margin-left: 0.5%;
-  margin-right: 0.5%;
-  border-radius: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.myLog {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 25%;
+  padding: 0.5%;
 }
 
 .miniIcon {
