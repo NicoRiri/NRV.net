@@ -34,29 +34,27 @@
             let a = document.createElement("a");
             a.setAttribute("href", "../detailspectacle/index.html?id=" + element.details.id);
             a.setAttribute("class", "item");
-            a.innerHTML = `<div class="text">
+            let html = `<div class="text">
                 <h2>${element.details.titre}</h2>`;
 
                 element.details.artisteArray.forEach(artiste => {
-                    a.innerHTML += `<p>${artiste.pseudonyme}</p>`;
+                    html += `<p>${artiste.pseudonyme}</p>`;
                 });
                 
                 getSoireeById(element.details.soiree_id)
                 .then(soiree => {
-                    a.innerHTML += `<p>${soiree.soiree.details.date}</p>
+                    html += `<p>${soiree.soiree.details.date}</p>
                                     <p>${soiree.soiree.details.nbPlaceRestanteTotale} places</p>`;
                 });
 
-
-
-            a.innerHTML += `</div>`;
+            html += `</div>`;
                 if(element.details.tabImg.length > 1){
-                    //prendre un nombre aléatoire entre 0 et tabImg.length
                     let rand = Math.floor(Math.random() * element.details.tabImg.length);
-                    a.innerHTML += `<img src="${element.details.tabImg[rand].imgUrl}" alt="Image 1" class="image"/>`;
+                    html += `<img src="${element.details.tabImg[rand].imgUrl}" alt="Image 1" class="image"/>`;
                 } else {
-                    a.innerHTML += `<img src="${element.details.tabImg[0].imgUrl}" alt="Image 1" class="image"/>`;
+                    html += `<img src="${element.details.tabImg[0].imgUrl}" alt="Image 1" class="image"/>`;
                 }
+            a.innerHTML = html;
             document.getElementById("catalogue").appendChild(a);
         });
     })
@@ -98,40 +96,51 @@
         console.log(lieu);
         specs.then(data => {
             data.spectacle.forEach(element => {
+                let arr = [];
                 getSoireeById(element.details.soiree_id).then(soiree => {
+
                     if(soiree.soiree.details.lieu_id.nom == lieu || lieu == "0"){
-                        if(soiree.soiree.details.thematique == theme || theme == "0"){
-                            if(soiree.soiree.details.date == date || date == ""){
-                                let a = document.createElement("a");
-                                a.setAttribute("href", "../detailspectacle/index.html?id=" + element.details.id);
-                                a.setAttribute("class", "item");
-                                a.innerHTML = `<div class="text">
-                                    <h2>${element.details.titre}</h2>`;
-
-                                    element.details.artisteArray.forEach(artiste => {
-                                        a.innerHTML += `<p>${artiste.pseudonyme}</p>`;
-                                    });
-                                    
-                                    getSoireeById(element.details.soiree_id)
-                                    .then(soiree => {
-                                        a.innerHTML += `<p>${soiree.soiree.details.date}</p>
-                                                        <p>${soiree.soiree.details.nbPlaceRestanteTotale} places</p>`;
-                                    });
-
-
-
-                                a.innerHTML += `</div>`;
-                                    if(element.details.tabImg.length > 1){
-                                        //prendre un nombre aléatoire entre 0 et tabImg.length
-                                        let rand = Math.floor(Math.random() * element.details.tabImg.length);
-                                        a.innerHTML += `<img src="${element.details.tabImg[rand].imgUrl}" alt="Image 1" class="image"/>`;
-                                    } else {
-                                        a.innerHTML += `<img src="${element.details.tabImg[0].imgUrl}" alt="Image 1" class="image"/>`;
-                                    }
-                                document.getElementById("catalogue").appendChild(a);
-                            }
-                        }
+                        arr.push(element.details.titre);
                     }
+                    if(soiree.soiree.details.thematique == theme || theme == "0"){
+                        arr.push(element.details.titre);
+                    }
+                    if(soiree.soiree.details.date == date || date == ""){
+                        arr.push(element.details.titre);
+                    }
+
+                    arr.filter((item, 
+                        index) => arr.indexOf(item) === index);
+                    
+                    arr.forEach(item => {
+                        let a = document.createElement("a");
+                            a.setAttribute("href", "../detailspectacle/index.html?id=" + element.details.id);
+                            a.setAttribute("class", "item");
+                            a.innerHTML = `<div class="text">
+                                <h2>${element.details.titre}</h2>`;
+
+                                element.details.artisteArray.forEach(artiste => {
+                                    a.innerHTML += `<p>${artiste.pseudonyme}</p>`;
+                                });
+                                
+                                getSoireeById(element.details.soiree_id)
+                                .then(soiree => {
+                                    a.innerHTML += `<p>${soiree.soiree.details.date}</p>
+                                                    <p>${soiree.soiree.details.nbPlaceRestanteTotale} places</p>`;
+                                });
+
+
+
+                            a.innerHTML += `</div>`;
+                                if(element.details.tabImg.length > 1){
+                                    //prendre un nombre aléatoire entre 0 et tabImg.length
+                                    let rand = Math.floor(Math.random() * element.details.tabImg.length);
+                                    a.innerHTML += `<img src="${element.details.tabImg[rand].imgUrl}" alt="Image 1" class="image"/>`;
+                                } else {
+                                    a.innerHTML += `<img src="${element.details.tabImg[0].imgUrl}" alt="Image 1" class="image"/>`;
+                                }
+                            document.getElementById("catalogue").appendChild(a); 
+                    });
                 });
             });
         });
