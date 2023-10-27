@@ -1,6 +1,7 @@
 //première partie
 const apiUrl = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/profile';
 let apiUrl2 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree';
+let apiUrl3 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/achat';
 let token = localStorage.getItem('token');
 let prixTotalP=0;
 let NombreBillet=0;
@@ -8,6 +9,10 @@ const headers = new Headers();
 headers.append('Authorization', `Bearer ${token}`);
 const fetchOptions = {
     method: 'GET',
+    headers: headers,
+};
+const fetchOptions2 = {
+    method: 'PUT',
     headers: headers,
 };
 //deuxieme partie
@@ -19,27 +24,30 @@ const tableHTML = `
 `;
 const carteHTML = `
   <div class="box carte">
+    <form id="formulaire-paiement">
     <div>
         <h3>Numéro de carte</h3>
         <input type="tel" pattern="[0-9]{16}" name="numeroCarte" required>
     </div>
     <div>
         <h3>Date d'expiration</h3>
-        <input type="number" min="1" max="12" step="1" value="1" name="mois"/>
-        <input type="number" min="1900" max="2099" step="1" value="2023" name="année"/>
+        <input type="number" min="1" max="12" step="1" value="1" name="mois" required>
+        <input type="number" min="1900" max="2099" step="1" value="2023" name="année" required>
     </div>
     <div>
         <h3>Cryptogramme</h3>
-        <input type="number" min="0" max="999" name="cryptogramme">
+        <input type="number" min="0" max="999" name="cryptogramme" required>
     </div>
-    <button class="myButton" id="btnAfficherBillet">Valider</button>
+    <button class="myButton" type="submit"id="btnAfficherBillet">Valider</button>
+</form>
+
   </div>
 `;
 const billetHTML = `
   <div class="box billet">
     <h3>Billet(s)</h3>
     <ul>
-        <li>La soirée (Le soir, 19h, 18/03/2024) <button class="myButton">Imprimer</button></li>
+        <li>La soirée (Le soir, 19h, 18/03/2024) <button class="myButton"id="btnImprimerFacture">Imprimer</button></li>
     </ul>
   </div>
 `;
@@ -52,22 +60,31 @@ const boutoncouleur3 = document.querySelector("#tres");
 boutoncouleur.style.backgroundColor = "lightblue";
 group.innerHTML= tableHTML ;
 const btnAfficherCarte = document.getElementById("btnAfficherCarte");
+
 btnAfficherCarte.addEventListener("click", function () {
     group.innerHTML= carteHTML ;
     boutoncouleur.style.backgroundColor = "white";
     boutoncouleur2.style.backgroundColor = "lightblue";
     const btnAfficherBillet = document.getElementById("btnAfficherBillet");
+    //faire en sorte que le bouton soit cliquable que si le formulaire est valide
+    const formulairePaiement = document.getElementById("formulaire-paiement");
+    formulairePaiement.addEventListener("submit", function (event) {
+        event.preventDefault();
     btnAfficherBillet.addEventListener("click", function () {
         group.innerHTML= billetHTML ;
         boutoncouleur2.style.backgroundColor = "white";
         boutoncouleur3.style.backgroundColor = "lightblue";
+        fetch(apiUrl3, fetchOptions2)
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json();
+                } else {
+                    throw new Error('La requête a échoué');
+                }
+            });
+            });
     });
 });
-
-
-
-// ... (votre code précédent)
-
 fetch(apiUrl, fetchOptions)
     .then(response => {
         if (response.status === 200) {
@@ -127,7 +144,7 @@ fetch(apiUrl, fetchOptions)
                                 </tr>
                             `;
                             tableauHTML.innerHTML += ligneHTML;
-                            prixTotalP += tarifIndividuel;
+
                             if(status==="pair"){
                                 status="impair";
                             }else{
@@ -146,15 +163,15 @@ fetch(apiUrl, fetchOptions)
                                 </tr>
                             `;
                             tableauHTML.innerHTML += ligneHTML;
-                            prixTotalP += tarifIndividuel;
+
                             if(status==="pair"){
                                 status="impair";
                             }else{
                                 status="pair";
                             }
                         }
+                        prixTotalP = prixTotalP + (quantiteAssise + quantiteDebout) * prix;
 
-                        // Mettre à jour le total ici si nécessaire
                         console.log(prixTotalP);
                         const totalLigneHTML = `
             <tr class="principal">
