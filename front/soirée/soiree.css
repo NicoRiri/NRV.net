@@ -236,6 +236,10 @@ th, td {
   visibility: hidden;
 }
 
+a {
+  text-decoration: none;
+}
+
 div {
   display: flex;
   flex-direction: column;
