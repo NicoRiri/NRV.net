@@ -24,4 +24,8 @@ class sBillet
     {
         Billet::where([["utilisateur_id", $idUser], ["estAchete", 0]])->update(["estAchete" => 1]);
     }
+
+    public function deleteBillet($id_user, $id_soiree){
+        $supp = Billet::where(["utilisateur_id", $id_user], ["soiree_id", $id_soiree])->delete();
+    }
 }

@@ -5,12 +5,11 @@ namespace NRV\Produit\api\actions;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use NRV\Produit\api\services\sBillet;
-use NRV\Produit\api\services\sSoiree;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpUnauthorizedException;
 
-class PutAchatAction extends AbstractAction
+class DeleteAchatAction extends AbstractAction
 {
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
@@ -31,9 +30,10 @@ class PutAchatAction extends AbstractAction
             throw new HttpUnauthorizedException($request, "Mauvais log");
         }
         $profile = json_decode($res->getBody()->getContents(), true);
+        $body = $request->getBody();
         $sBillet = new sBillet();
-        $sBillet->validateBillet($profile["id"]);
-        $response->getBody()->write("Panier validé");
+        $sBillet->deleteBillet($profile["id"], $body["soiree_id"]);
+        $response->getBody()->write("Article supprimé");
         return $response;
     }
 }
