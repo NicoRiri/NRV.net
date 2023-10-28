@@ -1,0 +1,14 @@
+{% block content %}
+<h1>Jauge</h1>
+{% endblock %}
+{% if soirees %}
+{% for s in soirees.soiree %}
+<div>
+    <h1>{{ s.nom }}</h1>
+    <p>{{ s.nbPlaceTotale - s.nbPlaceRestanteTotale }} / {{ s.nbPlaceTotale }} places réservées</p>
+    <div class="bar" style="width: 200px;height: 20px;border: 1px solid #000;position: relative;">
+        <div class="green" style="width: calc({{ (s.nbPlaceTotale - s.nbPlaceRestanteTotale) / s.nbPlaceTotale }} *100%); height: 100%;background-color: deepskyblue;"></div>
+    </div>
+</div>
+{%  endfor %}
+{%  endif %}

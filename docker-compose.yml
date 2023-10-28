@@ -35,6 +35,22 @@ services:
     depends_on:
       - nrv.auth.db
 
+  nrv.admin:
+    image: 'canals/php:latest'
+    ports:
+      - '2082:80'
+    volumes:
+      - ./Admin/public:/var/www/html
+      - ./Admin:/var/www
+    working_dir: /var/www
+    networks:
+      nrv.net:
+        aliases:
+          - admin.nrv.local
+    depends_on:
+      - nrv.db
+      - nrv.auth.db
+
   nrv.db:
     image: 'mariadb:latest'
     command: '--default-authentication-plugin=mysql_native_password --character-set-server=utf8 --collation-server=utf8_general_ci'
