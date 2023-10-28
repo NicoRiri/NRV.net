@@ -13,7 +13,8 @@ CREATE TABLE `users` (
   `refresh_token` varchar(64) DEFAULT NULL,
   `refresh_token_expiration_date` timestamp NULL DEFAULT NULL,
   `nom` varchar(64) DEFAULT NULL,
-  `prenom` varchar(64) DEFAULT NULL
+  `prenom` varchar(64) DEFAULT NULL,
+  `estAdmin` TINYINT DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

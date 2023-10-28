@@ -27,13 +27,13 @@ class GetProfileAction extends AbstractAction
         $client = new Client();
         try {
             $res = $client->request('GET', "http://nrv.auth.api/api/users/validate", ['headers' => $headers]);
-            $res = $res->getBody()->getContents(); // Obtenez le contenu de la réponse
-            $res = json_decode($res, true); // Décoder la réponse JSON en un tableau associatif
+            $res = $res->getBody()->getContents();
+            $res = json_decode($res, true);
 
             $sbi = new sBillet();
 
             if (isset($res["id"])) {
-                $billet = $sbi->getBilletByUserId($res["id"]); // Utilisez $res["id"] pour obtenir l'ID
+                $billet = $sbi->getBilletByUserId($res["id"]);
                 $retour = [
                     "profile" => $res,
                     "billets" => $billet
@@ -41,7 +41,6 @@ class GetProfileAction extends AbstractAction
 
                 $response->getBody()->write(json_encode($retour));
             } else {
-                // Gérer le cas où "id" n'existe pas dans la réponse
             }
         } catch (ClientException $e) {
             throw new HttpUnauthorizedException($request, "Mauvais log");

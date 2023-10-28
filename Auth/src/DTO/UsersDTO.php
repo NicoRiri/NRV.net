@@ -11,8 +11,18 @@ class UsersDTO
     public $refresh_token_expiration_date;
     public $nom;
     public $prenom;
+    public $estAdmin;
 
-    public function __construct($id, string $email, $refresh_token, $refresh_token_expiration_date, $nom, $prenom)
+    /**
+     * @param $id
+     * @param string $email
+     * @param $refresh_token
+     * @param $refresh_token_expiration_date
+     * @param $nom
+     * @param $prenom
+     * @param $estAdmin
+     */
+    public function __construct($id, string $email, $refresh_token, $refresh_token_expiration_date, $nom, $prenom, $estAdmin)
     {
         $this->id = $id;
         $this->email = $email;
@@ -20,6 +30,7 @@ class UsersDTO
         $this->refresh_token_expiration_date = $refresh_token_expiration_date;
         $this->nom = $nom;
         $this->prenom = $prenom;
+        $this->estAdmin = $estAdmin;
     }
 
 
