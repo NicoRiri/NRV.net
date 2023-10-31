@@ -1,6 +1,35 @@
-<h1>Bienvenue dans l'admin</h1>
+{% extends 'Layout.twig' %}
+{% block content %}
+<h1 class="mt-5 text-center text-6xl text-indigo-600 font-bold">Bienvenue dans le backoffice</h1>
 {% if estAdmin == 1 %}
 <h1>{{ estAdmin }}</h1>
 {% else %}
-<h1>Vos credentials sont invalides</h1>
+    <h1 class="mt-3 text-red-600 text-center font-bold text-4xl">Veuillez vous connecter avec un compte administrateur</h1>
+
+        <form class="mt-6 h-1/2" id="connexion" method="post" action="{{ url_for('connexion') }}">
+            <div class="flex justify-center h-full">
+            <div class="flex flex-col justify-around h-4/6 bg-gray-200 border border-gray-300 rounded-lg">
+                <div class="flex flex-col justify-around h-1/2">
+                    <div class="p-2">
+                        <p>Email : </p>
+                        <input class="rounded-full" name="email" type="email">
+                    </div>
+                    <div class="p-2">
+                        <p>Mot de passe : </p>
+                        <input class="rounded-full" name="password" type="password">
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <button class="p-1 px-2 rounded-3xl text-bold text-white bg-indigo-600" type="submit">Valider</button>
+                </div>
+
+
+            </div>
+
+            </div>
+        </form>
+
+
+
 {% endif %}
+{% endblock %}

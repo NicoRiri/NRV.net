@@ -5,8 +5,6 @@ return function( \Slim\App $app):void {
 
     $app->get('[/]', \NRV\Admin\actions\GetAccueilAction::class)
         ->setName('accueil');
-    $app->get('/connexion[/]', \NRV\Admin\actions\LoginFormAction::class)
-        ->setName('connexion');
     $app->post('/connexion[/]', \NRV\Admin\actions\LoginProcessAction::class)
         ->setName('connexion');
     $app->get('/jauge[/]', \NRV\Admin\actions\GetJaugeAction::class)

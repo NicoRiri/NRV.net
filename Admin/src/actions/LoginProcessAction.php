@@ -30,9 +30,9 @@ class LoginProcessAction extends AbstractAction {
             $res = $client->request('GET', "http://nrv.auth.api/api/users/validate", ['headers' => $headers]);
             $res = $res->getBody()->getContents();
             $res = json_decode($res, true);
-            var_dump($res);
         } catch (ClientException $e){
-            throw new HttpUnauthorizedException($request, "Mauvais log");
+            $view = Twig::fromRequest($request);
+            return $view->render($response, 'Accueil.twig');
         }
 
         $view = Twig::fromRequest($request);
