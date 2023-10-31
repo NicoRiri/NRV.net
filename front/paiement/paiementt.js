@@ -71,6 +71,10 @@ btnAfficherCarte.addEventListener("click", function () {
         event.preventDefault();
     btnAfficherBillet.addEventListener("click", function () {
         group.innerHTML= billetHTML ;
+        let printer= document.getElementById("btnImprimerFacture");
+        printer.addEventListener("click", function () {
+            window.location.href = "../profil/index.html";
+        });
         boutoncouleur2.style.backgroundColor = "white";
         boutoncouleur3.style.backgroundColor = "lightblue";
         fetch(apiUrl3, fetchOptions2)
