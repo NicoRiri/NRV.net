@@ -351,4 +351,41 @@ div > div label {
   background-color: #e3e3e3;
 }
 
+@media (max-width: 1024px) {
+  div {
+    flex-direction: column;
+    align-items: center;
+  }
+  div > div {
+    align-items: center;
+    text-align: center;
+  }
+  div > div label {
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 40px;
+  }
+  .table, .carte, .billet {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  div > div label {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+  }
+  .table, .carte, .billet {
+    width: 100%;
+  }
+  h2 {
+    font-size: 10px;
+  }
+  button {
+    font-size: 12px;
+  }
+}
+
 /*# sourceMappingURL=paiement.css.map */

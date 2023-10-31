@@ -5,6 +5,10 @@ let apiUrl3 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/achat';
 let token = localStorage.getItem('token');
 let prixTotalP=0;
 
+if (token === null) {
+    window.location.href = "../connexion/index.html";
+
+}
 const headers = new Headers();
 headers.append('Authorization', `Bearer ${token}`);
 const fetchOptions = {
@@ -45,9 +49,9 @@ const carteHTML = `
 `;
 const billetHTML = `
   <div class="box billet">
-    <h3>Billet(s)</h3>
+    <h3>Merci pour votre achat</h3>
     <ul>
-        <li>La soirée (Le soir, 19h, 18/03/2024) <button class="myButton"id="btnImprimerFacture">Imprimer</button></li>
+        <li><button class="myButton"id="btnImprimerFacture">Imprimer</button></li>
     </ul>
   </div>
 `;
