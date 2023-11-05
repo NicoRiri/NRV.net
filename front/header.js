@@ -16,12 +16,12 @@ if(token!=null){
     let parent=document.querySelector(".popup").children;
     parent[0].innerHTML="Profil";
     parent[1].innerHTML="Deconnexion";
-    if(deuxDerniersSegments=="front/Index.html"){
-        parent[0].href="../front/profil/index.html";
-        parent[1].href="../front/index.html";
+    if(deuxDerniersSegments=="/"){
+        parent[0].href="/profil/";
+        parent[1].href="/";
     }else{
-        parent[0].href="../profil/index.html";
-        parent[1].href="../index.html";
+        parent[0].href="/profil/";
+        parent[1].href="/";
     }
     parent[1].onclick=function(){
         localStorage.removeItem("token");

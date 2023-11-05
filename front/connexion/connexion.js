@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(data => {
                 localStorage.setItem("token", data.accesToken);
                 console.log(window.location.href);
-                window.location.href = "../Index.html";
+                window.location.href = "/";
             })
             .catch(error => {
                 console.error(`Erreur lors de la requête FETCH : ${error.message}`);
