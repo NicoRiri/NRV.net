@@ -67,7 +67,6 @@
 
     soirees.then(data => {
         data.soiree.forEach(element => {
-            console.log(element);
             let lieu = document.createElement("option");
             lieu.setAttribute("value", element.lieu_id.nom);
             lieu.innerHTML = element.lieu_id.nom;
@@ -93,24 +92,21 @@
         let lieu = document.getElementById("lieux").value;
         let theme = document.getElementById("genre").value;
         let date = document.getElementById("date").value;
-        console.log(lieu);
         specs.then(data => {
             data.spectacle.forEach(element => {
                 let arr = [];
                 getSoireeById(element.details.soiree_id).then(soiree => {
+                    let lieusoiree = soiree.soiree.details.lieu_id.nom == lieu;
+                    let themesoiree = soiree.soiree.details.thematique == theme;
+                    let datesoiree = soiree.soiree.details.date == date;
 
-                    if(soiree.soiree.details.lieu_id.nom == lieu || lieu == "0"){
+                    if(lieusoiree || themesoiree || datesoiree){
                         arr.push(element.details.titre);
+                    } else {
+                        if(lieu == "0" && theme == "0" && date == ""){
+                            arr.push(element.details.titre);
+                        }
                     }
-                    if(soiree.soiree.details.thematique == theme || theme == "0"){
-                        arr.push(element.details.titre);
-                    }
-                    if(soiree.soiree.details.date == date || date == ""){
-                        arr.push(element.details.titre);
-                    }
-
-                    arr.filter((item, 
-                        index) => arr.indexOf(item) === index);
                     
                     arr.forEach(item => {
                         let a = document.createElement("a");
