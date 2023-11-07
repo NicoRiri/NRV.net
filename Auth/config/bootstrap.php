@@ -4,30 +4,16 @@ use DI\ContainerBuilder;
 use Illuminate\Database\Capsule\Manager;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use pizzashop\shop\domain\service\Eloquent\Eloquent;
 use Slim\Factory\AppFactory;
-//
-//$builder = new ContainerBuilder();
-//
-//$container=$builder->build();
+use Tuupola\Middleware\CorsMiddleware;
+
 
 date_default_timezone_set('Europe/Paris');
 
 $containerBuilder = new ContainerBuilder();
 
-$containerBuilder->addDefinitions([
-    // Exemple d'injection d'une dépendance
-    'sCommande' => function () {
-        return new \pizzashop\shop\domain\service\Commande\sCommande();
-    },
 
-    // Vous pouvez ajouter d'autres dépendances ici
-]);
-
-$container = $containerBuilder->build();
-
-$app = AppFactory::createFromContainer($container);
-
+$app = AppFactory::create();
 
 // Ajoute le routing middleware
 $app->addRoutingMiddleware();

@@ -12,7 +12,8 @@ class InscriptionAction extends AbstractAction
 {
     public function __invoke(ServerRequestInterface $request, ResponseInterface $response, array $args): ResponseInterface
     {
-        $body = $request->getParsedBody();
+        $body = $request->getBody();
+        $body = json_decode($body, true);
         $formData = [
             'email' => $body["email"],
             'password' => $body["password"],

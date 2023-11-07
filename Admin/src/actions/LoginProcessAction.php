@@ -18,7 +18,6 @@ class LoginProcessAction extends AbstractAction {
             $res = $client->request('POST', "http://nrv.auth.api/api/users/signin", ['auth' => [$params["email"], $params["password"]]]);
             $res = $res->getBody()->getContents();
             $res = json_decode($res, true);
-            var_dump($res);
 
             $_SESSION["acces_token"] = $res["accesToken"];
 

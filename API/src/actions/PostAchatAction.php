@@ -30,15 +30,19 @@ class PostAchatAction extends AbstractAction
             throw new HttpUnauthorizedException($request, "Mauvais log");
         }
         $profile = json_decode($res->getBody()->getContents(), true);
-        $body = $request->getParsedBody();
+        $body = $request->getBody();
+	$body = json_decode($body, true);
         $soiree_id = $body["soiree_id"];
         $quantite_debout = $body["quantite_debout"];
         $quantite_assise = $body["quantite_assise"];
 
         $sSoiree = new sSoiree();
-        $sSoiree->acheterPlaceSoiree($profile["id"], $soiree_id, $quantite_debout, $quantite_assise);
+        $sSoiree->acheterPlaceSoiree($profile["id"], intval($soiree_id), intval($quantite_debout), intval($quantite_assise));
+        $response = $response
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization');
         $response->getBody()->write("Billets achetés");
 
-        return $response;
+        return $response->withAddedHeader('Access-Control-Allow-Origin', '*');
     }
 }

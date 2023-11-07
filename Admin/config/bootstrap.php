@@ -4,6 +4,7 @@ use Illuminate\Database\Capsule\Manager;
 use Slim\Factory\AppFactory;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
+use Tuupola\Middleware\CorsMiddleware;
 
 date_default_timezone_set('Europe/Paris');
 

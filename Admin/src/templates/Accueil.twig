@@ -1,14 +1,18 @@
 {% extends 'Layout.twig' %}
 {% block content %}
-<h1 class="mt-5 text-center text-6xl text-indigo-600 font-bold">Bienvenue dans le backoffice</h1>
+<h1 class="mt-5 text-center cursor-pointer text-6xl text-indigo-600 font-bold" xmlns="http://www.w3.org/1999/html">Bienvenue dans le backoffice</h1>
 {% if estAdmin == 1 %}
-<h1>{{ estAdmin }}</h1>
+<div class="mt-6 flex justify-center">
+    <form action="{{ url_for('jauge') }}">
+        <input type="submit" class=" cursor-pointer bg-pink border border-amber-500 p-5 text-black font-bold rounded-lg" value="Statistique" />
+    </form>
+</div>
 {% else %}
     <h1 class="mt-3 text-red-600 text-center font-bold text-4xl">Veuillez vous connecter avec un compte administrateur</h1>
 
         <form class="mt-6 h-1/2" id="connexion" method="post" action="{{ url_for('connexion') }}">
             <div class="flex justify-center h-full">
-            <div class="flex flex-col justify-around h-4/6 bg-gray-200 border border-gray-300 rounded-lg">
+            <div class="flex flex-col justify-around h-4/6 bg-gray-200 border border-gray-300 rounded-lg p-5">
                 <div class="flex flex-col justify-around h-1/2">
                     <div class="p-2">
                         <p>Email : </p>
