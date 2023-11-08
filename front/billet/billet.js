@@ -30,7 +30,6 @@ fetch(apiUrl2).then(response => {
         throw new Error('Échec de la requête Fetch pour la soirée');
     }
 }).then(soireeData => {
-    console.log(soireeData);
     let txt = document.getElementById("billet");
     let html = `<div class="contenu" id="content">
                     <div class="text" id="text">
@@ -43,7 +42,6 @@ fetch(apiUrl2).then(response => {
             throw new Error('Échec de la requête Fetch pour la soirée');
         }
     }).then(profileData => {
-        console.log(profileData);
         let arrhtml = [];
         profileData.billets.forEach(billet => {
             if(billet.estAchete == 1){
@@ -64,7 +62,6 @@ fetch(apiUrl2).then(response => {
             }
         });
         arrhtml.forEach(html => {
-            console.log(html);
             document.getElementById("billet").innerHTML += html;
         });
     });
