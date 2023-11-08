@@ -14,8 +14,8 @@ let deuxDerniersSegments = segments.slice(-2).join('/');
 if(token!=null){
     panier.style.visibility = 'visible';
     let parent=document.querySelector(".popup").children;
-    parent[0].innerHTML="Profil";
-    parent[1].innerHTML="Deconnexion";
+    parent[0].innerHTML="<img class=\"miniIcon\" src=\"icon/user-plus-solid.png\" alt=\"icon\">Profil";
+    parent[1].innerHTML="<img class=\"miniIcon\" src=\"icon/user-plus-solid.png\" alt=\"icon\">Deconnexion";
     if(deuxDerniersSegments=="/"){
         parent[0].href="/profil/";
         parent[1].href="/";

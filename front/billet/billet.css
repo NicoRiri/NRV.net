@@ -231,6 +231,7 @@ th, td {
   height: 2vw;
   width: 3vw;
   margin-right: 5%;
+  z-index: 1;
 }
 
 .connecter {
@@ -258,9 +259,6 @@ th, td {
 
 .contenu img {
   width: 100%;
-}
-
-img {
   z-index: -1;
 }
 
