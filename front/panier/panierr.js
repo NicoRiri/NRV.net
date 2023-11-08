@@ -1,5 +1,6 @@
 // Définir l'URL de l'API
 const apiUrl = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/profile';
+const apiUrl3 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/achat';
 let apiUrl2 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree';
 let token = localStorage.getItem('token');
 let prixTotalP=0;
@@ -25,7 +26,7 @@ function supprimer(soiree){
         headers: headers,
         body: JSON.stringify(requestBody) // Convertir les données en JSON et les envoyer dans le corps
     };
-    fetch(apiUrl, fetchOptions)
+    fetch(apiUrl3, fetchOptions)
         .then(response => {
             if (response.status === 200) {
                 return response.json(); // Convertir la réponse en JSON
