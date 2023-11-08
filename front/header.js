@@ -9,8 +9,8 @@ let cheminDeLaPage = window.location.pathname;
 let segments = cheminDeLaPage.split('/');
 let deuxDerniersSegments = segments.slice(-2).join('/');
 
-let icon="<img class=\"miniIcon\" src=\"../icon/user-pen-solid.png\" alt=\"icon\">Profil";
-let icon2="<img class=\"miniIcon\" src=\"../icon/user-minus-solid.png\" alt=\"icon\">Profil";
+let icon="<img class=\"miniIcon\" src=\"../icon/user-pen-solid.png\" alt=\"icon\">";
+let icon2="<img class=\"miniIcon\" src=\"../icon/user-minus-solid.png\" alt=\"icon\">";
 
 if(token!=null){
     panier.style.visibility = 'visible';
