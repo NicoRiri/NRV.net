@@ -1,8 +1,6 @@
 var header = document.getElementById("monHeader");
 var isSticky = false;
 
-
-
 const panier = document.querySelector('.connecter');
 
 let token=localStorage.getItem("token");
@@ -11,11 +9,14 @@ let cheminDeLaPage = window.location.pathname;
 let segments = cheminDeLaPage.split('/');
 let deuxDerniersSegments = segments.slice(-2).join('/');
 
+let icon="<img class=\"miniIcon\" src=\"../icon/user-pen-solid.png\" alt=\"icon\">Profil";
+let icon2="<img class=\"miniIcon\" src=\"../icon/user-minus-solid.png\" alt=\"icon\">Profil";
+
 if(token!=null){
     panier.style.visibility = 'visible';
     let parent=document.querySelector(".popup").children;
-    parent[0].innerHTML="<img class=\"miniIcon\" src=\"icon/user-plus-solid.png\" alt=\"icon\">Profil";
-    parent[1].innerHTML="<img class=\"miniIcon\" src=\"icon/user-plus-solid.png\" alt=\"icon\">Deconnexion";
+    parent[0].innerHTML=icon+"Profil";
+    parent[1].innerHTML=icon2+"Deconnexion";
     if(deuxDerniersSegments=="/"){
         parent[0].href="/profil/";
         parent[1].href="/";
