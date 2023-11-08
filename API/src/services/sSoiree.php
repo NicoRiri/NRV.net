@@ -82,7 +82,9 @@ class sSoiree
 
         $billets = Billet::where([["utilisateur_id", $id],["soiree_id", $soiree_id]])->first();
         if ($billets != null){
-            Billet::where([["utilisateur_id", $id],["soiree_id", $soiree_id]])->update([["quantiteDebout" => $billets->quantiteDebout + $quantite_debout], ["quantiteAssise" => $billets->quantiteAssise + $quantite_assise]]);
+            $totDebout = $billets->quantiteDebout + $quantite_debout;
+            $totAssis = $billets->quantiteAssise + $quantite_assise;
+            Billet::where([["utilisateur_id", $id],["soiree_id", $soiree_id]])->update(["quantiteDebout" => $totDebout, "quantiteAssise" => $totAssis]);
         } else {
             $dataBillet = new Billet();
             $dataBillet->utilisateur_id = $id;

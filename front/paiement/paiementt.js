@@ -1,13 +1,22 @@
 //première partie
 const apiUrl = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/profile';
 let apiUrl2 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree';
+let apiUrl3 = 'http://docketu.iutnc.univ-lorraine.fr:42769/api/achat';
 let token = localStorage.getItem('token');
 let prixTotalP=0;
-let NombreBillet=0;
+
+if (token === null) {
+    window.location.href = "../connexion/index.html";
+
+}
 const headers = new Headers();
 headers.append('Authorization', `Bearer ${token}`);
 const fetchOptions = {
     method: 'GET',
+    headers: headers,
+};
+const fetchOptions2 = {
+    method: 'PUT',
     headers: headers,
 };
 //deuxieme partie
@@ -19,27 +28,30 @@ const tableHTML = `
 `;
 const carteHTML = `
   <div class="box carte">
+    <form id="formulaire-paiement">
     <div>
         <h3>Numéro de carte</h3>
         <input type="tel" pattern="[0-9]{16}" name="numeroCarte" required>
     </div>
     <div>
         <h3>Date d'expiration</h3>
-        <input type="number" min="1" max="12" step="1" value="1" name="mois"/>
-        <input type="number" min="1900" max="2099" step="1" value="2023" name="année"/>
+        <input type="number" min="1" max="12" step="1" value="1" name="mois" required>
+        <input type="number" min="1900" max="2099" step="1" value="2023" name="année" required>
     </div>
     <div>
         <h3>Cryptogramme</h3>
-        <input type="number" min="0" max="999" name="cryptogramme">
+        <input type="number" min="0" max="999" name="cryptogramme" required>
     </div>
-    <button class="myButton" id="btnAfficherBillet">Valider</button>
+    <button class="myButton" type="submit"id="btnAfficherBillet">Valider</button>
+</form>
+
   </div>
 `;
 const billetHTML = `
   <div class="box billet">
-    <h3>Billet(s)</h3>
+    <h3>Merci pour votre achat</h3>
     <ul>
-        <li>La soirée (Le soir, 19h, 18/03/2024) <button class="myButton">Imprimer</button></li>
+        <li><button class="myButton"id="btnImprimerFacture">Imprimer</button></li>
     </ul>
   </div>
 `;
@@ -52,22 +64,34 @@ const boutoncouleur3 = document.querySelector("#tres");
 boutoncouleur.style.backgroundColor = "lightblue";
 group.innerHTML= tableHTML ;
 const btnAfficherCarte = document.getElementById("btnAfficherCarte");
+
 btnAfficherCarte.addEventListener("click", function () {
     group.innerHTML= carteHTML ;
     boutoncouleur.style.backgroundColor = "white";
     boutoncouleur2.style.backgroundColor = "lightblue";
     const btnAfficherBillet = document.getElementById("btnAfficherBillet");
+    const formulairePaiement = document.getElementById("formulaire-paiement");
+    formulairePaiement.addEventListener("submit", function (event) {
+        event.preventDefault();
     btnAfficherBillet.addEventListener("click", function () {
         group.innerHTML= billetHTML ;
+        let printer= document.getElementById("btnImprimerFacture");
+        printer.addEventListener("click", function () {
+            window.location.href = "../profil/index.html";
+        });
         boutoncouleur2.style.backgroundColor = "white";
         boutoncouleur3.style.backgroundColor = "lightblue";
+        fetch(apiUrl3, fetchOptions2)
+            .then(response => {
+                if (response.status === 200) {
+                    return response.json();
+                } else {
+                    throw new Error('La requête a échoué');
+                }
+            });
+            });
     });
 });
-
-
-
-// ... (votre code précédent)
-
 fetch(apiUrl, fetchOptions)
     .then(response => {
         if (response.status === 200) {
@@ -77,8 +101,6 @@ fetch(apiUrl, fetchOptions)
         }
     })
     .then(data => {
-        console.log('Données reçues :', data);
-
         const tableauHTML = document.createElement('table');
         tableauHTML.innerHTML = `
             <tr class="principal">
@@ -108,7 +130,6 @@ fetch(apiUrl, fetchOptions)
                         }
                     })
                     .then(soireeData => {
-                        console.log('Données reçues :', soireeData);
 
                         const nomSoiree = soireeData.soiree.details.nom;
                         const prix = soireeData.soiree.details.prixPlace;
@@ -127,7 +148,7 @@ fetch(apiUrl, fetchOptions)
                                 </tr>
                             `;
                             tableauHTML.innerHTML += ligneHTML;
-                            prixTotalP += tarifIndividuel;
+
                             if(status==="pair"){
                                 status="impair";
                             }else{
@@ -146,23 +167,22 @@ fetch(apiUrl, fetchOptions)
                                 </tr>
                             `;
                             tableauHTML.innerHTML += ligneHTML;
-                            prixTotalP += tarifIndividuel;
+
                             if(status==="pair"){
                                 status="impair";
                             }else{
                                 status="pair";
                             }
                         }
+                        prixTotalP = prixTotalP + (quantiteAssise + quantiteDebout) * prix;
 
-                        // Mettre à jour le total ici si nécessaire
-                        console.log(prixTotalP);
+
                         const totalLigneHTML = `
             <tr class="principal">
                 <td colspan="4">Total :</td>
                 <td>${prixTotalP}€</td>
             </tr>
         `;
-                        // Ajouter le tableau au DOM
                         tableauHTML.innerHTML=tableauHTML.innerHTML+totalLigneHTML;
                         const tableauContainer = document.querySelector('#tableau-container');
                         tableauContainer.appendChild(tableauHTML);

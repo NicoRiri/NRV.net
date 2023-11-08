@@ -11,7 +11,7 @@ class SoireeDTO extends DTO
     public $lieu_id;
     public $heureDebut;
     public $heureFin;
-    public $placeRestante;
+    public $nbPlaceTotale;
     public $spectacleArrayId;
     public $prixPlace;
     public $nbPlaceAssiseRestante;
@@ -33,7 +33,7 @@ class SoireeDTO extends DTO
      * @param $nbPlaceDeboutRestante
      * @param $nbPlaceRestanteTotale
      */
-    public function __construct($id, $nom, $date, $thematique, $lieu_id, $heureDebut, $heureFin, $placeRestante, $spectacleArrayId, $prixPlace, $nbPlaceAssiseRestante, $nbPlaceDeboutRestante, $nbPlaceRestanteTotale)
+    public function __construct($id, $nom, $date, $thematique, $lieu_id, $heureDebut, $heureFin, $nbPlaceTotale, $spectacleArrayId, $prixPlace, $nbPlaceAssiseRestante, $nbPlaceDeboutRestante, $nbPlaceRestanteTotale)
     {
         $this->id = $id;
         $this->nom = $nom;
@@ -42,7 +42,7 @@ class SoireeDTO extends DTO
         $this->lieu_id = $lieu_id;
         $this->heureDebut = $heureDebut;
         $this->heureFin = $heureFin;
-        $this->placeRestante = $placeRestante;
+        $this->nbPlaceTotale = $nbPlaceTotale;
         $this->spectacleArrayId = $spectacleArrayId;
         $this->prixPlace = $prixPlace;
         $this->nbPlaceAssiseRestante = $nbPlaceAssiseRestante;

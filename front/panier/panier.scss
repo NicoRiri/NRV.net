@@ -24,13 +24,13 @@ display: grid;
 
   padding: 20px;
   text-align: left;
-  //je voudrais qu'elle soit en haut a droite
+
   grid-column: 3/span 1;
   grid-row: 1;
 margin-left: 10px;
 }
-.myLog {
-  padding: 15px 30px; /* Ajustez la taille du bouton ici */
+.centrer {
+  padding: 15px 30px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -40,7 +40,6 @@ margin-left: 10px;
 }
 .Coomande{
   font-weight: bold;
-  //souligner
     text-decoration: underline;
 
 }

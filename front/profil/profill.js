@@ -13,7 +13,7 @@ const headers = new Headers();
 headers.append('Authorization', `Bearer ${token}`);
 
 if (token === null) {
-    window.location.href = "../connexion.index.html";
+    window.location.href = "../connexion/index.html";
 }
 const fetchOptions = {
     method: 'GET',

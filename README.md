@@ -47,20 +47,34 @@
 
 ## Modèle relationel
 
-- Utilisateur (<ins>id</ins>, email, mdp, prenom, nom)
-- Lieu(<ins>id</ins>, nom, adresse, nbPlaceAssise, nbPlaceDebout)
-- Soiree(<ins>id</ins>, nom, date, thématique, #lieuId, heureDebut, heureFin)
+- users(<ins>id</ins>, email, password, refresh_token, refresh_token_expiration_date, nom, prenom)
+
+- Lieu(<ins>id</ins>, nom, adresse, nbPlaceAssise, nbPlaceDebout, lien)
+
+- Soiree(<ins>id</ins>, nom, date, thematique, lieu_id, heureDebut, heureFin, prixPlace)
+
 - Artiste(<ins>id</ins>, pseudonyme)
-- Spectacle(<ins>id</ins>, titre, description, #soireeId, videoUrl, horaire)
-- ImageSpectable(<ins>id</ins>, imgUrl, #spectacleId)
-- Billet(<ins>#utilisateurId, #spectacleId</ins>, quantite)
-- Spectacle2Artiste(<ins>#spectacleId, #artisteId</ins>)
+
+- Spectacle(<ins>id</ins>, titre, description, soiree_id, videoUrl, horaire)
+
+- ImageSpectacle(<ins>id</ins>, imgUrl, spectacle_id)
+
+- Billet(<ins>utilisateur_id</ins>, <ins>soiree_id</ins>, quantiteDebout, quantiteAssise, estAchete)
+
+- Spectacle2Artiste(<ins>spectacle_id</ins>, <ins>artiste_id</ins>)
+
+
 
 ## Routes API
-- POST - /api/connexion/
-- GET - /api/spectacle/
-- GET - /api/spectacle/{id}
-- GET - /api/soiree/
-- GET - /api/soiree/{id}/
-- GET - /api/profile/
-- POST - /api/achat/
+### Authentification
+- 🟡 POST : /api/connexion/
+- 🟡 POST : /api/inscription/
+### NRV
+- 🟢 GET : /api/spectacle/
+- 🟢 GET : /api/spectacle/{id}/
+- 🟢 GET : /api/soiree/
+- 🟢 GET : /api/soiree/{id}/
+- 🟢 GET : /api/profile/
+- 🟡 POST : /api/achat/
+- 🔵 PUT : /api/achat/
+- 🟠 DELETE : /api/achat/

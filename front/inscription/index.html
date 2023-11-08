@@ -5,19 +5,21 @@
     <title>Inscription</title>
     <link rel="stylesheet" href="inscription.css">
     <script type="module" src="../header.js"></script>
+    <script type="module" src="inscription.js"></script>
 </head>
 <header id="monHeader">
-    <a class="myButton" href="../Index.html">Accueil</a>
-    <a class="myButton" href="../catalogue/index.html">Festivals</a>
-    <a class="myButton connecter" href="../panier/index.html">Panier</a>
+    <a class="myButton" href="/">Accueil</a>
+    <a class="myButton" href="/catalogue/">Festivals</a>
+    <a class="myButton connecter" href="/panier/">Panier</a>
     <button class="myButton myIcon"><img class="icon" src="../icon/circle-user-solid.png" alt="icon"></button>
 </header>
 <div class="popup box">
-    <a class="myLog sousLog" href="../Connexion/index.html"><img class="miniIcon" src="../icon/user-plus-solid.png" alt="icon"> Connection</a>
-    <a class="myLog sousLog" href="../front/Inscription/index.html"><img class="miniIcon" src="../icon/user-pen-solid.png" alt="icon"> Inscription</a>
+    <a class="myLog sousLog" href="/connexion/"><img class="miniIcon" src="../icon/user-plus-solid.png" alt="icon"> Connexion</a>
+    <a class="myLog sousLog" href="/inscription/"><img class="miniIcon" src="../icon/user-pen-solid.png" alt="icon"> Inscription</a>
 </div>
 <body>
 <div class="background"></div>
+<div class="centrage">
 <form class="box">
     <h1>Inscription</h1>
     <div>
@@ -34,14 +36,10 @@
     <div>
         <p>Mot de passe</p>
         <input type="password" id="mdp" name="motdepasse" required>
-
-    </div>
-    <div>
-        <p>Confirmation mot de passe</p>
-        <input type="password" id="cmdp" name="cmotdepasse" required>
     </div>
     <br><br>
     <input type="submit" value="S'inscrire" class="myButton submit">
 </form>
+</div>
 </body>
 </html>

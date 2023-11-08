@@ -30,8 +30,7 @@ class PutAchatAction extends AbstractAction
         } catch (ClientException $e) {
             throw new HttpUnauthorizedException($request, "Mauvais log");
         }
-
-        $profile = $res->getBody();
+        $profile = json_decode($res->getBody()->getContents(), true);
         $sBillet = new sBillet();
         $sBillet->validateBillet($profile["id"]);
         $response->getBody()->write("Panier validé");

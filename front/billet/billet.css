@@ -1,0 +1,297 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FF9640;
+  margin-bottom: 3%;
+}
+
+header {
+  z-index: 1;
+  background: linear-gradient(to bottom, #ffffff 5%, #ffd6b1 100%);
+  background-color: #ffd6b1;
+  display: flex;
+  width: 100%;
+  box-shadow: 0 0 1vh orange;
+}
+
+#monHeader {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 1%;
+  transition: margin-top 0.5s;
+}
+
+#monHeader.sticky {
+  position: fixed;
+  top: 0;
+  margin-top: 0;
+}
+
+#monHeader.sticky.reversed {
+  margin-top: 1%;
+  transition: margin-top 0.5s;
+}
+
+.myLog {
+  display: block;
+  text-align: center;
+  line-height: 3vw;
+  background: linear-gradient(to bottom, #ffb441 5%, #ff9900 100%);
+  background-color: #ff9900;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+  border-radius: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.myLog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myButton {
+  display: block;
+  height: 3vw;
+  text-align: center;
+  line-height: 3vw;
+  width: 10vw;
+  background: linear-gradient(to bottom, #ffffff 5%, #ffd6b1 100%);
+  background-color: #ffd6b1;
+  display: inline-block;
+  cursor: pointer;
+  color: #ff9900;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+  margin-left: 0.5%;
+  margin-right: 0.5%;
+}
+
+.icon {
+  display: block;
+  width: 3vw;
+  height: 3vw;
+}
+
+.myIcon {
+  display: flex;
+  width: 3.7vw;
+  height: 3.7vw;
+  margin-left: auto;
+  border: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.sousLog {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+@media (max-width: 767px) {
+  .sousLog {
+    font-size: 0.5em;
+  }
+  .myButton {
+    font-size: 15px;
+  }
+  .myIcon {
+    width: 5vw;
+    height: 5vw;
+  }
+  .icon {
+    display: block;
+    width: 4vw;
+    height: 4vw;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .sousLog {
+    font-size: 0.8em;
+  }
+  .myButton {
+    font-size: 20px;
+  }
+  .myIcon {
+    width: 4.7vw;
+    height: 4.7vw;
+  }
+  .icon {
+    display: block;
+    width: 3.5vw;
+    height: 3.5vw;
+  }
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #fff1e1 5%, #fcc89c 100%);
+  background-color: #fcc89c;
+  transform: scale(1.1);
+  transition: 0.5s;
+  box-shadow: 0 0 1vh orange;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.background {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  background: radial-gradient(circle, #ffdd00, #ff8800);
+  background-size: 300% 300%;
+  animation: moveGradient 30s reverse infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 100% 0;
+  }
+  25% {
+    background-position: 0 100%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+.box {
+  background: linear-gradient(to bottom, #ffffff 5%, #ffd6b1 100%);
+  background-color: #ffd6b1;
+  color: #ff9900;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 6px 24px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #cc9f52;
+  border-radius: 1vw;
+  box-shadow: 0 0 1vh orange;
+  border: 0;
+}
+
+table {
+  width: 98%;
+  border-collapse: collapse;
+  margin: 1%;
+}
+
+th, td {
+  border: 5px solid orange;
+  padding: 8px;
+  text-align: left;
+}
+
+.principal {
+  background-color: #ff912e;
+  color: white;
+}
+
+.pair {
+  background-color: #ffd6b1;
+}
+
+.impair {
+  background-color: #ffe7d4;
+}
+
+.popup {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  width: 25%;
+  padding: 0.5%;
+}
+
+.miniIcon {
+  height: 2vw;
+  width: 3vw;
+  margin-right: 5%;
+  z-index: 1;
+}
+
+.connecter {
+  visibility: hidden;
+}
+
+.billet {
+  margin-top: 50px;
+  padding: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titre {
+  font-weight: bold;
+  text-align: center;
+}
+
+.contenu {
+  font-size: 15px;
+  text-align: justify;
+  background-color: white;
+}
+
+.contenu img {
+  width: 100%;
+  z-index: -1;
+}
+
+.text {
+  padding: 0;
+  margin-top: 10px;
+  margin-left: 15px;
+  position: absolute;
+  color: white;
+  text-shadow: black 5px 5px 5px;
+}
+.text > div {
+  display: flex;
+}
+.text > div p {
+  margin: 10px 40px 0 0;
+}
+
+.myLog {
+  margin-left: auto;
+  margin-right: auto;
+  border: #ff9900 1px solid;
+}
+
+@media screen and (min-width: 1440px) {
+  .contenu {
+    font-size: 23px;
+  }
+}
+@media screen and (min-width: 2560px) {
+  .contenu {
+    font-size: 40px;
+  }
+}
+
+/*# sourceMappingURL=billet.css.map */
