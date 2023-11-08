@@ -59,20 +59,27 @@ fetch("http://docketu.iutnc.univ-lorraine.fr:42769/api/soiree/")
                     });
                     let boutonD=document.getElementById("commanded");
                     boutonD.addEventListener("click",function(){
-                        ajouter("assise",idValue);
+                        ajouter("debout",idValue);
                     });
                 });
         }
     });
 
 function ajouter(type,id){
+    let quantitedebout=0;
+    let quantiteassise=0;
+    if(type==="debout"){
+        quantitedebout=1;
+    }else if(type==="assise"){
+        quantiteassise=1;
+    }
     let token = localStorage.getItem('token');
     const headers = new Headers();
     headers.append('Authorization', `Bearer ${token}`);
     const requestBody = {
         soiree_id: id,
-        quantite_debout: 10,
-        quantite_assise: 10// Les données que vous voulez envoyer dans le corps de la requête
+        quantite_debout: quantitedebout,
+        quantite_assise: quantiteassise// Les données que vous voulez envoyer dans le corps de la requête
     };
     const fetchOptions2 = {
         method: 'POST',

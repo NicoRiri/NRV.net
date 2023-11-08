@@ -1,22 +1,21 @@
 @import "../base";
 
 body {
-  display: grid;
-  justify-items: center;
   form{
     margin-top: 120px;
-  }
-  div{
-    display: flex;
-    height: 20px;
-    align-items: baseline;
-    padding: 10px;
-    input{
-      box-sizing: content-box;
-      margin-left: 10px;
-      margin-right: 10px;
-      border: #ff9900 1px solid;
-      flex-grow: 1;
+    div{
+      display: flex;
+      height: 20px;
+      align-items: baseline;
+      padding: 10px;
+      justify-content: space-between;
+      input{
+        box-sizing: content-box;
+        margin-left: 10px;
+        margin-right: 10px;
+        border: #ff9900 1px solid;
+        flex-grow: 1;
+      }
     }
   }
   .submit{
@@ -28,4 +27,9 @@ body {
     margin-right: auto;
     margin-bottom: 10px;
   }
+}
+
+.centrage{
+  display: grid;
+  justify-items: center;
 }
